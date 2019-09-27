@@ -1,0 +1,41 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-image: url(bg.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+    
+}
+.con{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    
+}
+h2{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    margin-top: 340px;
+}
+button{
+    text-transform: uppercase;
+    background-color: rgb(241, 114, 55);
+    color: white;
+    height: 40px;
+    width: 170px;
+    margin-top: 195px;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: transform 1s;
+
+}
+button:hover{
+    transform: scale(1.1);
+    
+}
