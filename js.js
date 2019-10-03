@@ -21,3 +21,14 @@ var x = setInterval(function(){
 
     if(des <= 0) clearInterval(x);
 }, 1000)
+var b = document.getElementsByClassName("show");
+var a = document.getElementsByClassName("anim1");
+function fun1(){
+   b[0].style.display = "flex";
+   a[0].style.display = 'block';
+}
+function fun2(){
+    b[0].style.display = "none";
+    a[0].style.display = 'none';
+
+ }
