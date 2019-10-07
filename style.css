@@ -146,7 +146,12 @@ article .content-wrap .text h2{
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
+.img{
+    width: 480px;
+    
+}
 article .content-wrap img{
+    width: 100%;
     animation-delay: 0ms;
     pointer-events: all;
     animation-name: shake;
@@ -196,20 +201,47 @@ article .content-wrap img{
         transform: translate3d(10px,0,0);
     }
 }
+
 @media screen and (max-width: 800px) {
-   
+.img{
+    width: 480px;
+}
 header{
-    height: 15vh;
+    height: 9vh;
 }
 header nav{
-    
+    padding: 20px;
 
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+header nav ul{
+    margin-top: 10px;
+}
 header nav ul li a{
-    font-size: 0.7rem;
+    
     font-weight: 400;
 }
   }
+  @media screen and (max-width: 450px) {
+    
+    .img{
+        width: 400px;
+    }
+    html{
+        font-size: 15px
+    }
+    header nav ul{
+        margin-top: 13px;
+    }
+    header nav ul li a{
+        
+        font-weight: 400;
+    }
+      }
+      @media screen and (max-width: 400px){
+        .img{
+            width: 300px;
+        }
+      }
