@@ -90,10 +90,10 @@ header nav ul li{
 header nav ul li a{
     font-size: .875rem;
     text-decoration: none;
-    color: rgb(255, 165, 0);
+    color: white;
 }
 header nav ul li a:hover{
-    color: rgba(255, 166, 0, 0.5);
+    color: rgba(255, 255, 255, 0.507);
 }
 
 
@@ -148,6 +148,8 @@ article .content-wrap .text h2{
 }
 .img{
     width: 480px;
+    position: absolute;
+    
     
 }
 article .content-wrap img{
@@ -238,6 +240,9 @@ header nav ul li a{
     header nav ul li a{
         
         font-weight: 400;
+    }
+    .img{
+       top: 340px
     }
       }
       @media screen and (max-width: 400px){
