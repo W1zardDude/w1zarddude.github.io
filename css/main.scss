@@ -21,11 +21,34 @@ a{
 ul{
     list-style-type: none;
 }
-input[type=checkbox]{
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
+
+// Main
+
+main{
+    .container{
+        display: flex;
+        width: 100vw;
+        height: 600px;
+        border: 2px solid black;
+        .filter{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30vw;
+            padding: 20px;
+            border: 2px solid blueviolet;
+            .filter__district{
+                width: auto;
+                
+                .filter__district__menu{
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+        .content{
+            width: 70vw;
+        }
+    }
+    
 }
-
-// Header
-
