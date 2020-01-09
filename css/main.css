@@ -27,12 +27,18 @@ ul {
   list-style-type: none;
 }
 
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 main .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100vw;
-  height: 600px;
+  height: auto;
   border: 2px solid black;
 }
 
@@ -47,6 +53,7 @@ main .container .filter {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   width: 30vw;
+  height: 600px;
   padding: 20px;
   border: 2px solid blueviolet;
 }
@@ -66,6 +73,23 @@ main .container .filter .filter__district .filter__district__menu {
 }
 
 main .container .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 70vw;
+}
+
+main .container .content .content__item {
+  width: 15vw;
+  margin: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+  height: auto;
+}
+
+main .container .content .content__item .content__item__img {
+  width: inherit;
 }
 /*# sourceMappingURL=main.css.map */
