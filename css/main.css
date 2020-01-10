@@ -156,6 +156,11 @@ header .toggle {
   width: 20px;
   height: 2px;
   background-color: #000000;
+  cursor: pointer;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 header .toggle::after, header .toggle::before {
@@ -169,6 +174,10 @@ header .toggle::after, header .toggle::before {
 header .toggle::after {
   position: relative;
   top: 200%;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
 }
 
 header .toggle::before {
@@ -198,6 +207,18 @@ header input[type=checkbox]:checked ~ .toggle {
   position: absolute;
   right: 0px;
   z-index: 99999;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+header input[type=checkbox]:checked ~ .toggle::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  top: 0;
+}
+
+header input[type=checkbox]:checked ~ .toggle::before {
+  display: none;
 }
 
 main {
