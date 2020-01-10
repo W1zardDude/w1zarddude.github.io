@@ -11,6 +11,7 @@
     
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="logo">COBALT.</div>
         <nav class="navigation">
@@ -50,6 +51,7 @@
         </nav>
     </header>
     
+    <!-- SLIDER -->
     <div class="slider">
         <a onclick="next()" href="#" class="control_next">></a>
         <a onclick="prev()" href="#" class="control_prev"><</a>
@@ -60,65 +62,14 @@
         </ul>
     </div>
 
+    <!-- Main Content -->
     <main>
-        <div class="container">
-            <div class="filter">
-                <div class="filter__district">
-                        <h2>District</h2>
-                    <ul class="filter__district__menu">
-                        <li data-district="obolon" class="filter__district__menu__item"><input type="checkbox" name="district" id="obolon"><label for="obolon" href="#">Obolonsky</label></li>
-                        <li data-district="svytoshino" class="filter__district__menu__item"><input type="checkbox" name="district" id="svytoshino"><label for="svytoshino">Svyatoshinsky</label> </li>
-                        <li data-district="podol" class="filter__district__menu__item"><input type="checkbox" name="district" id="podol"><label for="podol">Podolsky</label> </li>
-                        <!-- <li class="filter__district__menu__item"><input type="checkbox" name="district" id="shevchenkov"><label for="shevchenkov">Shevchenkovsky</label> </li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="soloma"><label for="soloma">Solomensky</label> </li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="pechersk"><label for="pechersk">Pechersky</label> </li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="goloseevsky"><label for="goloseevsky">Goloseevsky</label> </li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="desniansky"><label for="desniansky">Desniansky</label> </li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="dneprovsky"><label for="dneprovsky">Dneprovsky</label> </li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="darnitsky"><label for="darnitsky">Darnitsky</label> </li> -->
-                        
-                    </ul>
-                </div>
-                
-                <div class="filter__rooms">
-                    <h2>Rooms</h2>
-                    <ul class="filter__rooms__menu">
-                        <li class="filter__rooms__menu__item"><input type="checkbox" name="one-room" id="one-room"><label for="one-room">1 room</label> </li>
-                        <li class="filter__rooms__menu__item"><input type="checkbox" name="two-rooms" id="two-room"><label for="two-room">2 rooms</label> </li>
-                        <li class="filter__rooms__menu__item"><input type="checkbox" name="three-rooms" id="three-room"><label for="three-room">3 rooms</label> </li>
-                        <li class="filter__rooms__menu__item"><input type="checkbox" name="four-rooms" id="four-room"><label for="four-room">4 rooms</label> </li>
-                    </ul>
-                </div>
-                <div class="filter__price">
-                    <h2>Price</h2>
-                    <label for="filter__price__min">Min</label><input type="text" name="min-price" id="filter__price__min">
+        <div class="filter">
 
-                    <label for="filter__price__max">Max</label><input type="text" name="max-price" id="filter__price__max">
-                </div>
-                <div class="filter__type-of-building">
-                    <h2>Type of Building</h2>
-                    <ul class="filter__type-of-building__menu">
-                        <li class="filter__type-of-building__menu__item"><input type="checkbox" name="new-type" id="new-type"><label for="new-type">New Building</label></li>
-                        <li class="filter__type-of-building__menu__item"><input type="checkbox" name="old-type" id="old-type"><label for="old-type">Old Building</label></li>
-                    </ul>
-                </div>
-                <div class="filter__developer">
-                    <h2>Developer</h2>
-                    <ul class="filter__developer__menu__item">
-                        <li class="filter__developer__menu__item"><input type="checkbox" name="developer" id="stolitsa-developer"><label for="stolitsa-developer">Stolitsa Group</label></li>
-                        <li class="filter__developer__menu__item"><input type="checkbox" name="developer" id="kah-developer"><label for="kah-developer">К.А.Н. Девелопмент</label></li>
-                        <li class="filter__developer__menu__item"><input type="checkbox" name="developer" id="bUd-developer"><label for="bUd-developer">bUd Development</label></li>
-                        <li class="filter__developer__menu__item"><input type="checkbox" name="developer" id="saga-developer"><label for="saga-developer">Saga Development</label></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="content">
-                
-            </div>
         </div>
-
-        
+        <div class="content">
+            
+        </div>
     </main>
 
     <script src="js/index.js"></script>
