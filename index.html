@@ -5,11 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cobalt</title>
-    
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/1722243d3a.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
+    <header>
+        <div class="logo">COBALT.</div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Properties</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Buy</a></li>
+                        <li><a href="#">Rent</a></li>
+                        <li><a href="#">Lease</a></li>
+                      </ul>
+                </li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <input type="checkbox" name="toggle" id="toggle">
+        <label class="toggle" for="toggle"></label>
+        <nav class="mobile-navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Properties</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Buy</a></li>
+                        <li><a href="#">Rent</a></li>
+                        <li><a href="#">Lease</a></li>
+                      </ul>
+                </li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <div class="container">
@@ -17,9 +56,9 @@
                 <div class="filter__district">
                         <h2>District</h2>
                     <ul class="filter__district__menu">
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="obolon"><label for="obolon" href="#">Obolonsky</label></li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="svytoshino"><label for="svytoshino">Svyatoshinsky</label> </li>
-                        <li class="filter__district__menu__item"><input type="checkbox" name="district" id="podol"><label for="podol">Podolsky</label> </li>
+                        <li data-district="obolon" class="filter__district__menu__item"><input type="checkbox" name="district" id="obolon"><label for="obolon" href="#">Obolonsky</label></li>
+                        <li data-district="svytoshino" class="filter__district__menu__item"><input type="checkbox" name="district" id="svytoshino"><label for="svytoshino">Svyatoshinsky</label> </li>
+                        <li data-district="podol" class="filter__district__menu__item"><input type="checkbox" name="district" id="podol"><label for="podol">Podolsky</label> </li>
                         <!-- <li class="filter__district__menu__item"><input type="checkbox" name="district" id="shevchenkov"><label for="shevchenkov">Shevchenkovsky</label> </li>
                         <li class="filter__district__menu__item"><input type="checkbox" name="district" id="soloma"><label for="soloma">Solomensky</label> </li>
                         <li class="filter__district__menu__item"><input type="checkbox" name="district" id="pechersk"><label for="pechersk">Pechersky</label> </li>
@@ -65,7 +104,6 @@
             </div>
 
             <div class="content">
-                
                 
             </div>
         </div>

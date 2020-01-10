@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 const content = {
     obolon:{
         id1:{
@@ -177,21 +187,13 @@ const content = {
     }
 }
 
+filterArr = [];
+
+
+
+
 const svytoshinoDistrict = document.querySelector('#svytoshino'),
       content__block = document.querySelector('.content');
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Array for Content
@@ -210,8 +212,7 @@ for(let key in content.svytoshino){
     content__item__img.src = content.svytoshino[key].container.img;
     content__item__description.innerHTML = content.svytoshino[key].container.description;
     //Append content__item__img + content__item__description in content__item
-        // content__item.appendChild(content__item__img);
-        // content__item.appendChild(content__item__description);
+
     
         content__array__item.push(content__item__img, 
                                   content__item__description);
@@ -219,48 +220,97 @@ for(let key in content.svytoshino){
         
 }
 
-
-
 //
-for(let i = 0; i<= 10; i++){   
-    let content__item = document.createElement('div');     
-        content__array[i].map((value)=>{
-            content__item.className = 'content__item';
-            content__item.appendChild(value);
+// for(let i = 0; i<= 10; i++){   
+//     let content__item = document.createElement('div');
 
-        })
-        content__block.appendChild(content__item);
+//     content__array[i].map(value => {
+//         content__item.className = 'content__item';
+//         content__item.appendChild(value);
+
+//     })
+//     content__block.appendChild(content__item);
+    
+// }
+
+let wrapper = document.querySelector('.filter');
+wrapper.addEventListener('click', function(e) {
+    const clickEl = e.target;
+	if(clickEl.tagName === 'INPUT') {
+        let parent = clickEl.parentNode.getAttribute('data-district');
+        let li = clickEl.parentNode;
+        let liInput = li.querySelector('input');
+        if(liInput.checked) {
+            for(let i = 0; i<= 10; i++){   
+                let content__item = document.createElement('div');
+            
+                content__array[i].map(value => {
+                    content__item.className = 'content__item';
+                    content__item.appendChild(value);
+            
+                })
+                content__block.appendChild(content__item);
+                
+            }
+        } else {
+            // content__block.parentNode
+            content__block.parentNode.removeChild('.content');
+            // console.log(content__block.parentNode.querySelector('.content'));
+            // content__block.parentNode.deleteChild(querySelectorAll('.content'));
+        }
+
         
-}
+
+        if(clickEl.parentNode.getAttribute('data-district') === 'obolon') {
+            console.log(true);
+        } else {
+            console.log(false);
+        }
+
+
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
 //
 
     
-if ("onpropertychange" in svytoshinoDistrict) {
-    // старый IE
-    svytoshinoDistrict.onpropertychange = function() {
-      // проверим имя изменённого свойства
-      if (event.propertyName == "checked") {
-        alert( svytoshinoDistrict.checked );
-      }
-    };
-  } else {
-    // остальные браузеры
-    svytoshinoDistrict.onchange = function() {
+// if ("onpropertychange" in svytoshinoDistrict) {
+//     // старый IE
+//     svytoshinoDistrict.onpropertychange = function() {
+//       // проверим имя изменённого свойства
+//       if (event.propertyName == "checked") {
+//         alert( svytoshinoDistrict.checked );
+//       }
+//     };
+//   } else {
+//     // остальные браузеры
+//     svytoshinoDistrict.onchange = function() {
 
-        for(let key in content.svytoshino){
-            if(svytoshinoDistrict.checked === true){
-                content_item_img.src = content.svytoshino[key].container.img;
-            }
-            else{
-                content_item_img.src = "";
-            }
-        }
+//         for(let key in content.svytoshino){
+//             if(svytoshinoDistrict.checked === true){
+//                 content_item_img.src = content.svytoshino[key].container.img;
+//             }
+//             else{
+//                 content_item_img.src = "";
+//             }
+//         }
 
         
         
         
       
-    };
-  }
+//     };
+//   }
   
 
