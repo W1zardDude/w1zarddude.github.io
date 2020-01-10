@@ -1,4 +1,35 @@
+const li = document.querySelectorAll('.slide');
 
+for(let i = 0; i<= li.length; i++){
+    
+}
+
+var id = 0;
+function next(){
+    if(id>=2){
+        li[id].style.zIndex = '1';
+        li[0].style.zIndex = '100';
+        id=0;
+    }
+    else{
+        li[id].style.zIndex = "1"
+        li[id+1].style.zIndex = "100";
+        id++;
+    }   
+    
+}
+function prev(){
+    if(id<=0){
+        li[id].style.zIndex = '1';
+        li[2].style.zIndex = '100';
+        id=2;
+    }
+    else{
+        li[id].style.zIndex = "1"
+        li[id-1].style.zIndex = "100";
+        id--;
+    }   
+}
 
 
 
