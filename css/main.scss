@@ -185,6 +185,7 @@ header{
         height: 90vh;
         list-style: none;
         li:first-child{
+            opacity: 1;
             z-index: 100;
         }
         li {
@@ -198,6 +199,8 @@ header{
         background: #ccc;
         text-align: center;
         line-height: 300px;
+        opacity: 0;
+        transition: all .5s ease;
         overflow: hidden;
         display: flex;
         justify-content: center;

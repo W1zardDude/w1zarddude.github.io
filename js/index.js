@@ -9,11 +9,15 @@ function next(){
     if(id>=2){
         li[id].style.zIndex = '1';
         li[0].style.zIndex = '100';
+        li[id].style.opacity = "0"
+        li[0].style.opacity = "1";
         id=0;
     }
     else{
         li[id].style.zIndex = "1"
         li[id+1].style.zIndex = "100";
+        li[id].style.opacity = "0"
+        li[id+1].style.opacity = "1";
         id++;
     }   
     
@@ -22,11 +26,15 @@ function prev(){
     if(id<=0){
         li[id].style.zIndex = '1';
         li[2].style.zIndex = '100';
+        li[id].style.opacity = "0"
+        li[2].style.opacity = "1";
         id=2;
     }
     else{
         li[id].style.zIndex = "1"
         li[id-1].style.zIndex = "100";
+        li[id].style.opacity = "0"
+        li[id-1].style.opacity = "1";
         id--;
     }   
 }
