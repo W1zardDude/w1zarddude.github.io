@@ -372,8 +372,6 @@ main .content .content__wrapper .content__item {
   height: 300px;
   display: block;
   padding: 10px 20px;
-  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.336);
-          box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.336);
 }
 
 main .content .content__wrapper .content__item a img {
@@ -382,6 +380,8 @@ main .content .content__wrapper .content__item a img {
   height: auto;
   -webkit-transition: opacity .3s ease;
   transition: opacity .3s ease;
+  -webkit-box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.336);
+          box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.336);
 }
 
 main .content .content__wrapper .content__item a:hover img {
