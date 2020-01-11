@@ -372,6 +372,8 @@ main .content .content__wrapper .content__item {
   height: 300px;
   display: block;
   padding: 10px 20px;
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.336);
+          box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.336);
 }
 
 main .content .content__wrapper .content__item a img {
@@ -398,22 +400,22 @@ main .content .content__wrapper .content__item__text {
 main .content .content__wrapper .content__item__text .price {
   font-size: 14px;
   padding: 2px 5px;
-  color: #e6e6e6;
-  background-color: #ff6600c7;
+  color: #fff;
+  background-color: #ff9b58c7;
   font-weight: bold;
 }
 
 main .content .content__wrapper .content__item__text h3 {
   font-size: 20px;
-  font-weight: bold;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.404);
+  font-weight: 400;
+  color: white;
+  background-color: rgba(44, 44, 44, 0.329);
   padding: 2px 5px;
 }
 
 main .content .content__wrapper .content__item__text .hover-description {
   display: block;
-  background-color: #ff6600c7;
+  background-color: #ff9b58c7;
   height: 25px;
   color: #fff;
   font-weight: bold;
@@ -432,6 +434,16 @@ main .content .content__wrapper .content__item:hover .content__item__text {
 main .content .content__wrapper .content__item:hover .content__item__text .hover-description {
   visibility: visible;
   opacity: 1;
+}
+
+@media screen and (max-width: 1400px) {
+  main .content .content__wrapper .content__item .content__item__text {
+    top: -84px;
+  }
+  main .content .content__wrapper .content__item .content__item__text .hover-description {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 990px) {
