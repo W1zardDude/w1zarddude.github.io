@@ -293,7 +293,6 @@ main {
           align-items: center;
   position: absolute;
   top: 86vh;
-  border: 2px solid black;
   width: 100%;
   background-color: #fff;
   padding: 80px 0;
@@ -317,6 +316,7 @@ main .filter .select-wrap {
 }
 
 main .filter .select-wrap .arrow::after {
+  display: none;
   content: "";
   position: relative;
   top: 13px;
@@ -329,9 +329,6 @@ main .filter .select-wrap .arrow::after {
 }
 
 main .filter .select-wrap select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
   cursor: pointer;
   padding: 6px 12px;
   line-height: 1.5;
