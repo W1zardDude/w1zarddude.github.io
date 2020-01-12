@@ -315,19 +315,6 @@ main .filter .select-wrap {
   margin: 5px 0;
 }
 
-main .filter .select-wrap .arrow::after {
-  display: none;
-  content: "";
-  position: relative;
-  top: 13px;
-  left: 240px;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid black;
-}
-
 main .filter .select-wrap select {
   cursor: pointer;
   padding: 6px 12px;
@@ -467,6 +454,12 @@ main .content .content__wrapper .content__item:hover .content__item__text .hover
 }
 
 @media screen and (max-width: 760px) {
+  .slider {
+    display: none;
+  }
+  main {
+    top: 50px;
+  }
   main .filter {
     width: 97vw;
   }

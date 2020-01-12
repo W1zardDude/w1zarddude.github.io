@@ -239,18 +239,18 @@ main{
         .select-wrap{
             width: 255px;
             margin: 5px 0;
-            .arrow::after{
-                display: none;
-                content: "";
-                position: relative;
-                top: 13px;
-                left: 240px;
-                width: 0; 
-                height: 0; 
-                border-left: 5px solid transparent;
-                border-right: 5px solid transparent;
-                border-top: 5px solid rgb(0, 0, 0);
-              }
+            // .arrow::after{
+            //     display: none;
+            //     content: "";
+            //     position: relative;
+            //     top: 13px;
+            //     left: 240px;
+            //     width: 0; 
+            //     height: 0; 
+            //     border-left: 5px solid transparent;
+            //     border-right: 5px solid transparent;
+            //     border-top: 5px solid rgb(0, 0, 0);
+            //   }
               select{
                 // appearance: none;
                 cursor: pointer;
@@ -387,7 +387,11 @@ main{
     }
 }
 @media screen and (max-width: 760px){
+    .slider{
+        display: none;
+    }
     main{
+        top: 50px;
         .filter{
             width: 97vw;
             .select-wrap{

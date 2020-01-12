@@ -1,38 +1,93 @@
 "use strict";
+// Slider
+    var li = document.querySelectorAll('.slide');
+    var id = 0;
 
-var li = document.querySelectorAll('.slide');
-var id = 0;
+    function next() {
+    if (id >= 2) {
+        li[id].style.zIndex = '1';
+        li[0].style.zIndex = '100';
+        li[id].style.opacity = "0";
+        li[0].style.opacity = "1";
+        id = 0;
+    } else {
+        li[id].style.zIndex = "1";
+        li[id + 1].style.zIndex = "100";
+        li[id].style.opacity = "0";
+        li[id + 1].style.opacity = "1";
+        id++;
+    }
+    }
 
-function next() {
-  if (id >= 2) {
-    li[id].style.zIndex = '1';
-    li[0].style.zIndex = '100';
-    li[id].style.opacity = "0";
-    li[0].style.opacity = "1";
-    id = 0;
-  } else {
-    li[id].style.zIndex = "1";
-    li[id + 1].style.zIndex = "100";
-    li[id].style.opacity = "0";
-    li[id + 1].style.opacity = "1";
-    id++;
-  }
+    function prev() {
+    if (id <= 0) {
+        li[id].style.zIndex = '1';
+        li[2].style.zIndex = '100';
+        li[id].style.opacity = "0";
+        li[2].style.opacity = "1";
+        id = 2;
+    } else {
+        li[id].style.zIndex = "1";
+        li[id - 1].style.zIndex = "100";
+        li[id].style.opacity = "0";
+        li[id - 1].style.opacity = "1";
+        id--;
+    }
+    }
+// </> Slider
+
+
+
+const districtSelect = document.querySelector('.district'),
+      roomsSelect = document.querySelector('.rooms'),
+      typeSelect = document.querySelector('.type-of-building'),
+      developerSelect = document.querySelector('.developer'),
+      contentWrapper = document.querySelector('.content__wrapper');
+
+
+// GET DISTRICT ROOMS TYPE DEVELOPER
+var district,
+    rooms,
+    type,
+    developer;
+
+function getDistrict() {
+    district = districtSelect.value;
+    console.log(district)
+    filter();   
+}
+function getRooms() {
+    rooms = roomsSelect.value;
+    console.log(rooms)
+}
+function getType() {
+    type = typeSelect.value;
+    console.log(type)
+}
+function getDeveloper() {
+    developer = developerSelect.value;
+    console.log(developer)
 }
 
-function prev() {
-  if (id <= 0) {
-    li[id].style.zIndex = '1';
-    li[2].style.zIndex = '100';
-    li[id].style.opacity = "0";
-    li[2].style.opacity = "1";
-    id = 2;
-  } else {
-    li[id].style.zIndex = "1";
-    li[id - 1].style.zIndex = "100";
-    li[id].style.opacity = "0";
-    li[id - 1].style.opacity = "1";
-    id--;
-  }
+let content = [
+    {
+        district: 'svytoshinsky',
+        rooms: '1',
+        type: 'new',
+        developer: 'saga',
+        arr: ['svytoshinsky', '1', 'new', 'saga'],
+    },
+]
+
+
+
+function createContentItem(){
+    
+}
+function filter(){
+    if(content[0].arr[0] === district){
+        
+    }
 }
 
 
@@ -40,184 +95,13 @@ function prev() {
 
 
 
-// var content = {
-//   obolon: {
-//     id1: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkFjord.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     }
-//   },
-//   svytoshino: {
-//     id1: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkFjord.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id2: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkDelrey.png",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id3: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkOtrada.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id4: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkFjord.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id5: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkDelrey.png",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id6: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkOtrada.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id7: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkFjord.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id8: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkDelrey.png",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id9: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkOtrada.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id10: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkFjord.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id11: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkDelrey.png",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id12: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkOtrada.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id13: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkFjord.jpg",
-//         description: "lol"
-//       }
-//     },
-//     id14: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkDelrey.png",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     },
-//     id15: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkOtrada.jpg",
-//         description: "lol"
-//       }
-//     }
-//   },
-//   podol: {
-//     id1: {
-//       rooms: 1,
-//       price: 50000,
-//       type: "new",
-//       developer: "kah",
-//       container: {
-//         img: "../img/jkFjord.jpg",
-//         description: "2 будинки будується, 6 збудовано"
-//       }
-//     }
-//   }
-// };
+
+
+
+
+
+
+//
 // filterArr = [];
 // var svytoshinoDistrict = document.querySelector('#svytoshino'),
 //     content__block = document.querySelector('.content'); // Array for Content
