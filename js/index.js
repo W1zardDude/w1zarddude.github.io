@@ -138,5 +138,6 @@ for(let item in items){
             contentWrapper.appendChild(contentItem);
         }
     })
+    console.log(1)
 
 }
