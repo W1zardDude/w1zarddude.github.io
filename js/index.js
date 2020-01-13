@@ -82,14 +82,13 @@ let content = [
 
 
 function createContentItem(){
-    
+
 }
 function filter(){
     if(content[0].arr[0] === district){
         
     }
 }
-
 
 
 
