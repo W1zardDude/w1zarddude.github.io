@@ -350,6 +350,23 @@ main .content {
           align-items: center;
 }
 
+main .content .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .content .pagination li {
+  margin: 2px;
+  padding: 2px 4px;
+  border: 1px solid rgba(138, 138, 138, 0.466);
+  cursor: pointer;
+}
+
+main .content .pagination li:hover, main .content .pagination .active {
+  border-color: red;
+}
+
 main .content .content__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -369,7 +386,7 @@ main .content .content__wrapper .content__item {
   padding: 10px 20px;
 }
 
-main .content .content__wrapper .content__item a img {
+main .content .content__wrapper .content__item img {
   position: relative;
   width: 100%;
   height: auto;
@@ -379,7 +396,7 @@ main .content .content__wrapper .content__item a img {
           box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.336);
 }
 
-main .content .content__wrapper .content__item a:hover img {
+main .content .content__wrapper .content__item img:hover {
   opacity: 0.9;
 }
 

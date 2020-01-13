@@ -66,7 +66,7 @@
         <div class="filter">
             <div class="select-wrap">
                 <span class="arrow"></span>
-                <select onchange="getDistrict()" class="district" name="district" id="dictrict">
+                <select class="district" name="district" id="dictrict">
                     <option value="none">District</option>
                     <option value="svytoshinsky">Svytoshinsky</option>
                     <option value="podolsky">Podolsky</option>
@@ -76,7 +76,7 @@
             </div>
             <div class="select-wrap">
                 <span class="arrow"></span>
-                <select onchange="getRooms()" class="rooms" name="Rooms" id="rooms">
+                <select class="rooms" name="Rooms" id="rooms">
                     <option value="1">1 Room</option>
                     <option value="2">2 Rooms</option>
                     <option value="3">3 Rooms</option>
@@ -85,14 +85,14 @@
             </div>
             <div class="select-wrap">
                 <span class="arrow"></span>
-                <select onchange="getType()" class="type-of-building" name="type" id="type-of-building">
+                <select class="type-of-building" name="type" id="type-of-building">
                     <option value="new">New</option>
                     <option value="old">Old</option>
                 </select>
             </div>
             <div class="select-wrap">
                 <span class="arrow"></span>
-                <select onchange="getDeveloper()" class="developer" name="developer" id="developer">
+                <select class="developer" name="developer" id="developer">
                     <option value="stolitsa">Stolitsa Group</option>
                     <option value="bud">bUd Development</option>
                     <option value="saga">Saga Development</option>
@@ -103,139 +103,26 @@
         <div class="content">
             <div class="content__wrapper">
                 
-                <div class="content__item">
-                    <a>
+                <!-- <div class="content__item">
+                    
                             <img src="img/img_6.jpg" alt="house">
-                    </a>
+
                     <div class="content__item__text">
+
                         <span class="price">49.999$</span>
+
                         <h3>c.Kyiv, Svytoshinsky district</h3>
+
                         <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
+                            Rooms: 1. Building type: New
                         </div>
                     </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="content__item">
-                    <a>
-                            <img src="img/img_6.jpg" alt="house">
-                    </a>
-                    <div class="content__item__text">
-                        <span class="price">49.999$</span>
-                        <h3>c.Kyiv, Svytoshinsky district</h3>
-                        <div class="hover-description">
-                            <span>Rooms: 1.</span>
-                            <span>Building type: New</span>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
                 
                 
             </div>
+            <ul class="pagination">
+            </ul>
         </div>
         <!-- Services -->
         <div id="services">

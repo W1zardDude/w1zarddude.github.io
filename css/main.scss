@@ -279,7 +279,19 @@ main{
         background-color: rgb(249, 249, 249);
         justify-content: center;
         align-items: center;
-        
+        .pagination{
+            display: flex;
+            li{
+                margin: 2px;
+                padding: 2px 4px;
+                border: 1px solid rgba(138, 138, 138, 0.466);
+                cursor: pointer;
+            }
+            li:hover, .active{
+                border-color: red;
+            }
+            
+        }
         .content__wrapper{
             display: flex;
             justify-content: center;
@@ -292,7 +304,7 @@ main{
                 display: block;
                 padding: 10px 20px;
                 
-                a{
+            
                     
                         img{
                             position: relative;
@@ -301,9 +313,9 @@ main{
                             transition: opacity .3s ease;
                             box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.336);
                         }
-                }
+                
 
-                a:hover img{
+                img:hover{
                     opacity: 0.9;
                 }
             }
