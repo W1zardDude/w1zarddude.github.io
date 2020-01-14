@@ -46,98 +46,108 @@ const districtSelect = document.querySelector('.district'),
 
 
 // GET DISTRICT ROOMS TYPE DEVELOPER
-districtSelect.addEventListener('change', function getDistrict(){
-    return districtSelect.value;
-});
+
+var filtered;
+
+districtSelect.addEventListener('change', ()=>{
+    
+    myFilter.district = districtSelect.value;
+    filtered = content.filter( item => Object.entries(myFilter)
+    .filter( ([ field, value ]) => value !== 0 )
+    .every( ([ field, value ]) => item[ field ] === value ));
+    console.log(filtered)
+})
+roomsSelect.addEventListener('change', ()=>{
+    
+    myFilter.rooms = roomsSelect.value;
+    filtered = content.filter( item => Object.entries(myFilter)
+    .filter( ([ field, value ]) => value !== 0 )
+    .every( ([ field, value ]) => item[ field ] === value ));
+    console.log(filtered)
+})
+typeSelect.addEventListener('change', ()=>{
+    
+    myFilter.type = typeSelect.value;
+    filtered = content.filter( item => Object.entries(myFilter)
+    .filter( ([ field, value ]) => value !== 0 )
+    .every( ([ field, value ]) => item[ field ] === value ));
+    console.log(filtered)
+})
+developerSelect.addEventListener('change', ()=>{
+    
+    myFilter.developer = developerSelect.value;
+    filtered = content.filter( item => Object.entries(myFilter)
+    .filter( ([ field, value ]) => value !== 0 )
+    .every( ([ field, value ]) => item[ field ] === value ));
+    console.log(filtered)
+})
+
 let myFilter = {
-    district:1,
+    district: 0,
+    rooms: 0,
+    type: 0,
+    developer: 0,
 };
+
+
+
+
 let content = [
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"},
-    {img:"../img/img_6.jpg", price: '49.999$', district: "c.Kyiv, Svytoshinsky district", description: "Rooms: 1. Building type: New"}
+    {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud'},
+    {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud'},
+    {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga'},
+    
 ]
-// ].filter( item => Object
-//     .entries(myFilter)
-//     .filter( ([ field, value ]) => value() !== 0 )
-//     .every( ([ field, value ]) => item[ field ] === value() )
-// );
 
-console.log(content)
-const pagination = document.querySelector('.pagination');
-let notesOnPage = 10;
-let counterItems = Math.ceil(content.length/notesOnPage);
-let items = [];
-console.log(counterItems)
-for(let i  = 1; i<= counterItems; i++){
-    let li = document.createElement('li');
-    li.innerHTML = i;
-    pagination.appendChild(li);
-    items.push(li);
-}
-console.log(items)
+// Сделать пагинацию при сортировке
 
-for(let item in items){
-    items[item].addEventListener('click', function(){
-        let pageNum = +this.innerHTML;
+// const pagination = document.querySelector('.pagination');
+// let notesOnPage = 10;
+// let counterItems = Math.ceil(content.length/notesOnPage);
+// let items = [];
 
-        let start = (pageNum - 1)*notesOnPage;
-        let end = start + notesOnPage;
+// for(let i  = 1; i<= counterItems; i++){
+//     let li = document.createElement('li');
+//     li.innerHTML = i;
+//     pagination.appendChild(li);
+//     items.push(li);
+// }
 
-        let notes = content.slice(start, end);
-        console.log(notes)
-        contentWrapper.innerHTML = '';
 
-        for(let note of notes){
-            console.log(notes[note])
-            let contentItem = document.createElement('div'),
-                itemImg = document.createElement('img'),
-                contentItemText = document.createElement('div'),
-                price = document.createElement('span'),
-                district = document.createElement('h3'),
-                hoverDescription = document.createElement('div');
+// for(let item in items){
+//     items[item].addEventListener('click', function(){
+//         let pageNum = +this.innerHTML;
+
+//         let start = (pageNum - 1)*notesOnPage;
+//         let end = start + notesOnPage;
+
+//         let notes = content.slice(start, end);
+//         contentWrapper.innerHTML = '';
+
+//         for(let note of notes){
+
+//             let contentItem = document.createElement('div'),
+//                 itemImg = document.createElement('img'),
+//                 contentItemText = document.createElement('div'),
+//                 price = document.createElement('span'),
+//                 district = document.createElement('h3'),
+//                 hoverDescription = document.createElement('div');
             
-            contentItem.classList.add('content__item');
-            itemImg.setAttribute('src', note.img);
-            contentItemText.classList.add('content__item__text');
-            contentItem.appendChild(itemImg);
-            price.classList.add('price');
-            price.innerHTML = note.price;
-            district.innerHTML = note.district;
-            hoverDescription.classList.add('hover-description');
-            hoverDescription.innerHTML = note.description;
-            contentItemText.appendChild(price);
-            contentItemText.appendChild(district);
-            contentItemText.appendChild(hoverDescription);
-            contentItem.appendChild(contentItemText);
+//             contentItem.classList.add('content__item');
+//             itemImg.setAttribute('src', note.img);
+//             contentItemText.classList.add('content__item__text');
+//             contentItem.appendChild(itemImg);
+//             price.classList.add('price');
+//             price.innerHTML = note.price;
+//             district.innerHTML = note.district;
+//             hoverDescription.classList.add('hover-description');
+//             hoverDescription.innerHTML = note.description;
+//             contentItemText.appendChild(price);
+//             contentItemText.appendChild(district);
+//             contentItemText.appendChild(hoverDescription);
+//             contentItem.appendChild(contentItemText);
 
-            contentWrapper.appendChild(contentItem);
-        }
-    })
-    console.log(1)
-
-}
+//             contentWrapper.appendChild(contentItem);
+//         }
+//     })
+// }
