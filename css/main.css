@@ -384,6 +384,7 @@ main .content .content__wrapper .content__item {
   height: 300px;
   display: block;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 main .content .content__wrapper .content__item img {

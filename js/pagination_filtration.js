@@ -10,39 +10,39 @@ const districtSelect = document.querySelector('.district'),
       blockContent = document.querySelector('.content');
 
 
-// GET DISTRICT ROOMS TYPE DEVELOPER
+// addEventLitener for select items to get #values and $filteItems() ant $CreateContentItems() on each 'change'
 
-var filtered;
 
 districtSelect.addEventListener('change', ()=>{
     
     myFilter.district = districtSelect.value;
     filterItems();
     creatingContentItems()
-    console.log(filtered)
+    
 })
 roomsSelect.addEventListener('change', ()=>{
     
     myFilter.rooms = roomsSelect.value;
     filterItems();
     creatingContentItems()
-    console.log(filtered)
+    
 })
 typeSelect.addEventListener('change', ()=>{
     
     myFilter.type = typeSelect.value;
     filterItems();
     creatingContentItems()
-    console.log(filtered)
+    
 })
 developerSelect.addEventListener('change', ()=>{
     
     myFilter.developer = developerSelect.value;
     filterItems();
     creatingContentItems()
-    console.log(filtered)
+    
 })
 
+// Object filter
 let myFilter = {
     district: 0,
     rooms: 0,
@@ -88,25 +88,26 @@ let content = [
     {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
 ]
 
-filtered = content;
+// filtration by rooms, district, developer, type
 function filterItems(){
-    filtered = content.filter( item => Object.entries(myFilter)
+    return content.filter( item => Object.entries(myFilter)
     .filter( ([ field, value ]) => value !== 0 )
     .every( ([ field, value ]) => item[ field ] === value ));
 }
 
 
-const pagination = document.querySelector('.pagination');
-let notesOnPage = 10;
-let counterItems = Math.ceil(filtered.length/notesOnPage);
-let items = [];
 
+function showThisItem(){
+   console.log(1)
+}
+
+// Pagination
 function creatingContentItems(){
-    items = [];
-    
     const pagination = document.querySelector('.pagination');
+    let items = [];
+    let notesOnPage = 10;
     pagination.innerHTML="";
-    let counterItems = Math.ceil(filtered.length/notesOnPage);
+    let counterItems = Math.ceil(filterItems().length/notesOnPage);
     for(let i  = 1; i<= counterItems; i++){
         let li = document.createElement('li');
         li.innerHTML = i;
@@ -114,16 +115,16 @@ function creatingContentItems(){
         items.push(li);
     }
     
-    
+    contentWrapper.innerHTML = '';
+    firstElements();
     for(let item in items){
         items[item].addEventListener('click', function(){
             let pageNum = +this.innerHTML;
-    
+            contentWrapper.innerHTML = '';
             let start = (pageNum - 1)*notesOnPage;
             let end = start + notesOnPage;
     
-            let notes = filtered.slice(start, end);
-            contentWrapper.innerHTML = '';
+            let notes = filterItems().slice(start, end);
             
             for(let note of notes){
     
@@ -147,10 +148,45 @@ function creatingContentItems(){
                 contentItemText.appendChild(district);
                 contentItemText.appendChild(hoverDescription);
                 contentItem.appendChild(contentItemText);
-    
+                contentItem.addEventListener('click', showThisItem);
                 contentWrapper.appendChild(contentItem);
             }
         })
     }
 }
 creatingContentItems();
+
+// first 10 element onload web page
+function firstElements(){
+
+    let notes = filterItems().slice(0, 10);
+            
+            
+            for(let note of notes){
+    
+                let contentItem = document.createElement('div'),
+                    itemImg = document.createElement('img'),
+                    contentItemText = document.createElement('div'),
+                    price = document.createElement('span'),
+                    district = document.createElement('h3'),
+                    hoverDescription = document.createElement('div');
+                
+                contentItem.classList.add('content__item');
+                itemImg.src = "../img/" + note.img;
+                contentItemText.classList.add('content__item__text');
+                contentItem.appendChild(itemImg);
+                price.classList.add('price');
+                price.innerHTML = note.price;
+                district.innerHTML = note.description;
+                hoverDescription.classList.add('hover-description');
+                hoverDescription.innerHTML = note.hoverdDescription;
+                contentItemText.appendChild(price);
+                contentItemText.appendChild(district);
+                contentItemText.appendChild(hoverDescription);
+                contentItem.appendChild(contentItemText);
+                contentItem.addEventListener('click', showThisItem);
+                contentWrapper.appendChild(contentItem);
+            }
+}
+
+
