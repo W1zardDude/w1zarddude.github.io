@@ -44,10 +44,10 @@ developerSelect.addEventListener('change', ()=>{
 
 // Object filter
 let myFilter = {
-    district: 0,
-    rooms: 0,
-    type: 0,
-    developer: 0,
+    district: "noneSelected",
+    rooms: "noneSelected",
+    type: "noneSelected",
+    developer: "noneSelected",
 };
 
 
@@ -91,7 +91,7 @@ let content = [
 // filtration by rooms, district, developer, type
 function filterItems(){
     return content.filter( item => Object.entries(myFilter)
-    .filter( ([ field, value ]) => value !== 0 )
+    .filter( ([ field, value ]) => value !== 'noneSelected' )
     .every( ([ field, value ]) => item[ field ] === value ));
 }
 
@@ -111,10 +111,35 @@ function creatingContentItems(){
     for(let i  = 1; i<= counterItems; i++){
         let li = document.createElement('li');
         li.innerHTML = i;
+        li.id = i;
+        li.classList.add('pagination-item');
         pagination.appendChild(li);
         items.push(li);
     }
+    // History
+    let paginationItems = Array.from(document.querySelectorAll('.pagination-item'));
     
+    function selectItem(id){
+        paginationItems.forEach(item =>{
+            item.classList.toggle('selected', item.id === id);
+        })
+    }
+
+    paginationItems.forEach(item => {
+        let id = item.id;
+        item.addEventListener('click', e =>{
+            history.pushState({id}, `Selected: ${id}`, `pagination-page=${id}`);
+            selectItem(id)
+        })
+    })
+
+    window.addEventListener('popstate', e  => {
+        selectItem(e.state.id)
+    })
+
+
+
+
     contentWrapper.innerHTML = '';
     firstElements();
     for(let item in items){
@@ -190,3 +215,4 @@ function firstElements(){
 }
 
 
+history.replaceState({id: null}, 'Default state', `./`)
