@@ -433,7 +433,7 @@ main {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  top: 86vh;
+  top: 100px;
   width: 100%;
   background-color: #fff;
   padding: 80px 0;
@@ -590,10 +590,8 @@ main .content .content__wrapper .content__item:hover .content__item__text .hover
   opacity: 1;
 }
 
-main #services {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+#services {
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -607,14 +605,15 @@ main #services {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 50px;
+  position: absolute;
+  top: 150px;
 }
 
-main #services h1 {
+#services h1 {
   margin-bottom: 50px;
 }
 
-main #services .services__wrap {
+#services .services__wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -622,7 +621,7 @@ main #services .services__wrap {
       flex-wrap: wrap;
 }
 
-main #services .services__wrap .services__item {
+#services .services__wrap .services__item {
   margin: 0 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -646,11 +645,11 @@ main #services .services__wrap .services__item {
   border-radius: 7px;
 }
 
-main #services .services__wrap .services__item img {
+#services .services__wrap .services__item img {
   width: 40px;
 }
 
-main #services .services__wrap .services__item h3 {
+#services .services__wrap .services__item h3 {
   font-size: 20px;
   text-align: center;
   padding: 10px;

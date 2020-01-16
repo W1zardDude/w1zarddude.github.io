@@ -12,9 +12,7 @@
 </head>
 <body>
     <script src="js/preloader.js"></script>
-    <!-- <div id="page-preloader" class="preloader">
-        <div class="loader"></div>
-    </div> -->
+
 <div class="page-preloader" id="page-preloader">
     <div class="wrap">
         <div class="loading">
@@ -31,12 +29,12 @@
         <nav class="navigation">
             <ul>
                 <li><a class="home navigation__item" href="#home">Home</a></li>
-                <li><a href="#services navigation__item">Services</a></li>
+                <li><a class="services navigation__item" href="#services">Services</a></li>
                 <li>
                     <a class='catalog' href="#">Catalog <span class="arrow"></span></a>
                     <ul class="dropdown navigation__item">
-                        <li><a href="# navigation__item">Buy</a></li>
-                        <li><a href="# navigation__item">Add advert</a></li>
+                        <li><a class="navigation__item buy-catalog" href="#">Buy</a></li>
+                        <li><a class="navigation__item" href="#">Add advert</a></li>
                       </ul>
                 </li>
                 <li><a class="openMap navigation__item" href="#">Map</a></li>
@@ -49,11 +47,11 @@
         <nav class="mobile-navigation">
             <ul id="mob-menu">
                 <li><a class="home mobile-menu-link navigation__item" href="#home">Home</a></li>
-                <li><a class="mobile-menu-link navigation__item" href="#">Services</a></li>
+                <li><a class="services mobile-menu-link navigation__item" href="#">Services</a></li>
                 <li>
                     <a href="#">Catalog</a>
                     <ul class="dropdown">
-                        <li><a class="mobile-menu-link navigation__item" href="#">Buy</a></li>
+                        <li><a class="mobile-menu-link navigation__item buy-catalog" href="#">Buy</a></li>
                         <li><a class="mobile-menu-link navigation__item" href="#">Add advert</a></li>
                       </ul>
                 </li>
@@ -140,26 +138,27 @@
             <ul class="pagination">
             </ul>
         </div>
-        <!-- Services -->
-        <div id="services">
-            <h1>SERVICES</h1>
-            <div class="services__wrap">
-                <div class="services__item">
-                    <img src="img/loan.svg" alt="buy">
-                    <h3>Buying apartments</h3>
-                </div>
-                <div class="services__item">
-                    <img src="img/sale.svg" alt="sale">
-                    <h3>Sale of apartments</h3>
-                </div>
-                <div class="services__item">
-                    <img src="img/map.svg" alt="map">
-                    <h3>Choose the desired apartment.</h3>
-                </div>
-            </div>
-        </div>
+        
         
     </main>
+    <!-- Services -->
+    <div id="services">
+        <h1>SERVICES</h1>
+        <div class="services__wrap">
+            <div class="services__item">
+                <img src="img/loan.svg" alt="buy">
+                <h3>Buying apartments</h3>
+            </div>
+            <div class="services__item">
+                <img src="img/sale.svg" alt="sale">
+                <h3>Sale of apartments</h3>
+            </div>
+            <div class="services__item">
+                <img src="img/map.svg" alt="map">
+                <h3>Choose the desired apartment.</h3>
+            </div>
+        </div>
+    </div>
 
     <div id="map">
 

@@ -1,9 +1,12 @@
 const header = document.getElementById('header'),
       slider = document.getElementById('slider'),
       mainContent = document.getElementById('main-content'),
+      services = document.querySelector('#services'),
       buttonMap = Array.from(document.querySelectorAll('.openMap')),
       map = document.getElementById('map'),
-      homeButton = Array.from(document.querySelectorAll('.home'));
+      homeButton = Array.from(document.querySelectorAll('.home')),
+      buyButton = Array.from(document.querySelectorAll('.buy-catalog')),
+      servicesButton = Array.from(document.querySelectorAll(".services"));
 
 
 const toggleMobileMenu = document.querySelector('#toggle'),
@@ -14,7 +17,25 @@ mobLink.forEach(link =>{
         toggle.checked = false;
     })
 })
+servicesButton.forEach(button =>{
+    button.addEventListener('click', function(){
+        header.style.display = 'flex';
+        slider.style.display = 'none';
+        mainContent.style.display = 'none';
+        map.style.display = 'none';
+        services.style.display = 'flex';
+    })
+})
 
+buyButton.forEach(button =>{
+    button.addEventListener('click', function(){
+        header.style.display = 'flex';
+        slider.style.display = 'none';
+        mainContent.style.display = 'flex';
+        map.style.display = 'none';
+        services.style.display = 'none';
+    })
+})
 
 buttonMap.forEach(button =>{
     button.addEventListener('click', function(){
@@ -22,6 +43,7 @@ buttonMap.forEach(button =>{
         slider.style.display = 'none';
         mainContent.style.display = 'none';
         map.style.display = 'block';
+        services.style.display = 'none';
     })
 })
 homeButton.forEach(button => {
@@ -30,6 +52,7 @@ homeButton.forEach(button => {
         slider.style.display = 'block';
         mainContent.style.display = 'none';
         map.style.display = 'none';
+        services.style.display = 'none';
     })
     
 })
