@@ -7,9 +7,7 @@
 }
 
 body {
-  overflow: hidden;
   width: 100vw;
-  height: auto;
 }
 
 a {
@@ -112,28 +110,6 @@ ul {
   }
   100% {
     top: 0;
-  }
-}
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: translate(-50%, -50%) rotate(0deg);
-            transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    -webkit-transform: translate(-50%, -50%) rotate(0deg);
-            transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 

@@ -10,9 +10,7 @@ $bounce_height: 30px;
     font-family: 'Nunito Sans', sans-serif;
 }
 body{
-    overflow: hidden;
     width: 100vw;
-    height: auto;
 }
 a{
     text-decoration: none;
@@ -90,14 +88,6 @@ ul{
   100% {
     top: 0;
   }
-}
-@keyframes spin{
-    from{
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to{
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
 }
 
 // HEADER
