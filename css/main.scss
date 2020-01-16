@@ -1,5 +1,7 @@
 $orange: #f89d13;
-
+$width: 15px;
+$height: 15px;
+$bounce_height: 30px;
 // Global Settings 
 *{
     margin: 0;
@@ -8,7 +10,9 @@ $orange: #f89d13;
     font-family: 'Nunito Sans', sans-serif;
 }
 body{
+    overflow: hidden;
     width: 100vw;
+    height: auto;
 }
 a{
     text-decoration: none;
@@ -19,6 +23,82 @@ ul{
     list-style-type: none;
 }
 
+// PRELOADER
+
+.page-preloader{
+    transition: all 1s linear;
+    opacity: 1;
+    visibility: visible;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 99999;
+    background-color: #ffaa00;
+    .wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .text {
+            color: #fff;
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .bounceball {
+            position: relative;
+            display: inline-block;
+            height: 37px;
+            width: $width;
+            &:before {
+              position: absolute;
+              content: '';
+              display: block;
+              top: 0;
+              width: $width;
+              height: $height;
+              border-radius: 50%;
+              background-color: #fff;
+              transform-origin: 50%;
+              animation: bounce 500ms alternate infinite ease;
+            }
+          }
+      }
+}
+
+.done{
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+
+@keyframes bounce {
+  0% {
+    top: $bounce_height;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
+  }
+  35% {
+    height: $height;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes spin{
+    from{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
 
 // HEADER
 header{
