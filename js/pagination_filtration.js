@@ -120,9 +120,7 @@ function creatingContentItems(){
     let paginationItems = Array.from(document.querySelectorAll('.pagination-item'));
     
     function selectItem(id){
-        paginationItems.forEach(item =>{
-            item.classList.toggle('selected', item.id === id);
-        })
+        id.selectItem
     }
 
     paginationItems.forEach(item => {
