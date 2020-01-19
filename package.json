@@ -1,0 +1,35 @@
+{
+  "name": "w1zarddude.github.io",
+  "version": "1.0.0",
+  "description": "cobalt",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-watch": "^5.0.1"
+  },
+  "scripts": {
+      "start": "babel build/js --out-dir build/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/W1zardDude/w1zarddude.github.io.git"
+  },
+  "author": "Kostya Tugai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/W1zardDude/w1zarddude.github.io/issues"
+  },
+  "homepage": "https://github.com/W1zardDude/w1zarddude.github.io#readme"
+}
