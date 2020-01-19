@@ -1,7 +1,5 @@
 
 
-
-
 const districtSelect = document.querySelector('.district'),
 roomsSelect = document.querySelector('.rooms'),
 typeSelect = document.querySelector('.type-of-building'),

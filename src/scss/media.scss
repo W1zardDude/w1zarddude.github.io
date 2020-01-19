@@ -15,24 +15,30 @@
     }
 }
 @media screen and(max-width: 1080px){
-    main{
+
         #services{
+            display: none;
+            justify-content: center;
+            align-items: center;
             .services__wrap{
+                display: flex;
+            justify-content: center;
+            align-items: center;
                 flex-direction: column;
                 .services__item{
                     margin-top: 20px;
-                    width: 60vw;
+                    width: 80vw;
                 }
             }
         }
-    }
+    
     
 }
 @media screen and (max-width: 990px){
     header{
         justify-content: space-between;
         .logo, .toggle{
-            margin: 0 10px;
+            margin: 0 20px;
         }
         .navigation{
             display: none;
