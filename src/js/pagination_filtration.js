@@ -181,12 +181,9 @@ for(let item in items){
           contentItemText.appendChild(hoverDescription);
           contentItem.appendChild(contentItemText);
           contentItem.addEventListener('click', function(){
-            
-            filterBlock.style.display = 'none';
-            pagination.style.display = 'none';
-                blockContent.style.display = 'flex';
+            blockContent.style.display = 'none';
                 contentSelected.style.display = 'flex';
-                
+                filterBlock.style.display = 'none';
                 let info__text = document.querySelector('.info__text'),
                     info__district = document.querySelector('.info__district'),
                     info__description = document.querySelector('.info__description'),
