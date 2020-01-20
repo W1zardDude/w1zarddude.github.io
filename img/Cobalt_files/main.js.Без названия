@@ -1,137 +1,4 @@
 "use strict";
-"use strict";
-
-function initMap() {
-  var pos = {
-    lat: 50.451369,
-    lng: 30.465131
-  };
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 50.451369,
-      lng: 30.465131
-    },
-    zoom: 17,
-    styles: [{
-      elementType: 'geometry',
-      stylers: [{
-        color: '#242f3e'
-      }]
-    }, {
-      elementType: 'labels.text.stroke',
-      stylers: [{
-        color: '#242f3e'
-      }]
-    }, {
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#746855'
-      }]
-    }, {
-      featureType: 'administrative.locality',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#d59563'
-      }]
-    }, {
-      featureType: 'poi',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#d59563'
-      }]
-    }, {
-      featureType: 'poi.park',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#263c3f'
-      }]
-    }, {
-      featureType: 'poi.park',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#6b9a76'
-      }]
-    }, {
-      featureType: 'road',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#38414e'
-      }]
-    }, {
-      featureType: 'road',
-      elementType: 'geometry.stroke',
-      stylers: [{
-        color: '#212a37'
-      }]
-    }, {
-      featureType: 'road',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#9ca5b3'
-      }]
-    }, {
-      featureType: 'road.highway',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#746855'
-      }]
-    }, {
-      featureType: 'road.highway',
-      elementType: 'geometry.stroke',
-      stylers: [{
-        color: '#1f2835'
-      }]
-    }, {
-      featureType: 'road.highway',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#f3d19c'
-      }]
-    }, {
-      featureType: 'transit',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#2f3948'
-      }]
-    }, {
-      featureType: 'transit.station',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#d59563'
-      }]
-    }, {
-      featureType: 'water',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#17263c'
-      }]
-    }, {
-      featureType: 'water',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#515c6d'
-      }]
-    }, {
-      featureType: 'water',
-      elementType: 'labels.text.stroke',
-      stylers: [{
-        color: '#17263c'
-      }]
-    }]
-  });
-  var marker = new google.maps.Marker({
-    map: map,
-    position: pos,
-    title: 'HERE'
-  });
-  var info = new google.maps.InfoWindow({
-    content: '<h3>This is that</h3>'
-  });
-  marker.addListener('click', function () {
-    info.p;
-  });
-}
-"use strict";
 
 var header = document.getElementById('header'),
     slider = document.getElementById('slider'),
@@ -145,6 +12,17 @@ var header = document.getElementById('header'),
     navItem = Array.from(document.querySelectorAll('.navigation__item'));
 var toggleMobileMenu = document.querySelector('#toggle'),
     mobLink = Array.from(document.querySelectorAll('.mobile-menu-link'));
+
+function colorItemReset() {
+  document.querySelector('.active-menu').style.color = '#rgba(0,0,0, 0.6)';
+}
+
+navItem.forEach(function (item) {
+  item.addEventListener('click', function () {
+    colorItemReset();
+    item.style.color = '#f89d13';
+  });
+});
 mobLink.forEach(function (link) {
   link.addEventListener('click', function () {
     toggle.checked = false;
@@ -201,9 +79,7 @@ var districtSelect = document.querySelector('.district'),
     typeSelect = document.querySelector('.type-of-building'),
     developerSelect = document.querySelector('.developer'),
     contentWrapper = document.querySelector('.content__wrapper'),
-    blockContent = document.querySelector('.content'),
-    filterBlock = document.querySelector('.filter'),
-    contentSelected = document.querySelector('.content__selected-item'); // addEventLitener for select items to get #values and $filteItems() ant $CreateContentItems() on each 'change'
+    blockContent = document.querySelector('.content'); // addEventLitener for select items to get #values and $filteItems() ant $CreateContentItems() on each 'change'
 
 districtSelect.addEventListener('change', function () {
   myFilter.district = districtSelect.value;
@@ -522,9 +398,9 @@ var contentLocalStorage = [{
   hoverdDescription: 'Rooms: 1'
 }]; // LocalStorage 'content'
 
+window.addEventListener;
 localStorage.setItem('content', JSON.stringify(contentLocalStorage));
-var content = JSON.parse(localStorage.getItem('content'));
-var pagination = document.querySelector('.pagination'); // filtration by rooms, district, developer, type
+var content = JSON.parse(localStorage.getItem('content')); // filtration by rooms, district, developer, type
 
 function filterItems() {
   return content.filter(function (item) {
@@ -545,14 +421,12 @@ function filterItems() {
 }
 
 function showThisItem() {
-  contentWrapper.style.display = 'none';
-  filterBlock.style.display = 'none';
-  pagination.style.display = 'none';
-  contentSelected.style.display = 'flex';
+  console.log(1);
 } // Pagination
 
 
 function creatingContentItems() {
+  var pagination = document.querySelector('.pagination');
   var items = [];
   var notesOnPage = 10;
   pagination.innerHTML = "";

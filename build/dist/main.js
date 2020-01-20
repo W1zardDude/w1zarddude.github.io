@@ -8,7 +8,8 @@ var header = document.getElementById('header'),
     map = document.getElementById('map'),
     homeButton = Array.from(document.querySelectorAll('.home')),
     buyButton = Array.from(document.querySelectorAll('.buy-catalog')),
-    servicesButton = Array.from(document.querySelectorAll(".services"));
+    servicesButton = Array.from(document.querySelectorAll(".services")),
+    navItem = Array.from(document.querySelectorAll('.navigation__item'));
 var toggleMobileMenu = document.querySelector('#toggle'),
     mobLink = Array.from(document.querySelectorAll('.mobile-menu-link'));
 mobLink.forEach(function (link) {

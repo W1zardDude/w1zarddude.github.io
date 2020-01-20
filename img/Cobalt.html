@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://127.0.0.1:5500/index.html# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.gm-style-pbc{transition:opacity ease-in-out;background-color:rgba(0,0,0,0.45);text-align:center}.gm-style-pbt{font-size:22px;color:white;font-family:Roboto,Arial,sans-serif;position:relative;margin:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+</style><style>.gm-style img{max-width: none;}.gm-style {font: 400 11px Roboto, Arial, sans-serif; text-decoration: none;}</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cobalt</title>
+    
+    
+
+    
+<script type="text/javascript" charset="UTF-8" src="./Cobalt_files/common.js.Без названия"></script><script type="text/javascript" charset="UTF-8" src="./Cobalt_files/util.js.Без названия"></script><script type="text/javascript" charset="UTF-8" src="./Cobalt_files/map.js.Без названия"></script><script type="text/javascript" charset="UTF-8" src="./Cobalt_files/marker.js.Без названия"></script><script type="text/javascript" charset="UTF-8" src="./Cobalt_files/onion.js.Без названия"></script><script type="text/javascript" charset="UTF-8" src="./Cobalt_files/stats.js.Без названия"></script><script type="text/javascript" charset="UTF-8" src="./Cobalt_files/infowindow.js.Без названия"></script><link href="./Cobalt_files/css" rel="stylesheet"><link rel="stylesheet" href="./Cobalt_files/style.css"></head>
+<body>
+    
+
+
+<div class="page-preloader done" id="page-preloader">
+    <div class="wrap">
+        <div class="loading">
+          <div class="bounceball"></div>
+          <div class="text">LOADING</div>
+        </div>
+      </div>
+</div>
+    
+
+    <!-- Header -->
+    <header id="header" style="display: flex;">
+        <div class="logo">COBALT.</div>
+        <nav class="navigation">
+            <ul>
+                <li><a class="home navigation__item" href="http://127.0.0.1:5500/index.html#home">Home</a></li>
+                <li><a class="services navigation__item" href="http://127.0.0.1:5500/index.html#services">Services</a></li>
+                <li>
+                    <a class="catalog" href="http://127.0.0.1:5500/index.html#">Catalog <span class="arrow"></span></a>
+                    <ul class="dropdown navigation__item">
+                        <li><a class="navigation__item buy-catalog" href="http://127.0.0.1:5500/index.html#">Buy</a></li>
+                        <li><a class="navigation__item" href="http://127.0.0.1:5500/index.html#">Add advert</a></li>
+                      </ul>
+                </li>
+                <li><a class="openMap navigation__item" href="http://127.0.0.1:5500/index.html#">Map</a></li>
+                <li><a class="navigation__item" href="http://127.0.0.1:5500/index.html#">Contacts</a></li>
+            </ul>
+        </nav>
+        <!-- Mobile menu -->
+        <input type="checkbox" name="toggle" id="toggle">
+        <label class="toggle" for="toggle"></label>
+        <nav class="mobile-navigation">
+            <ul id="mob-menu">
+                <li><a class="home mobile-menu-link navigation__item" href="http://127.0.0.1:5500/index.html#home">Home</a></li>
+                <li><a class="services mobile-menu-link navigation__item" href="http://127.0.0.1:5500/index.html#">Services</a></li>
+                <li>
+                    <a href="http://127.0.0.1:5500/index.html#">Catalog</a>
+                    <ul class="dropdown">
+                        <li><a class="mobile-menu-link navigation__item buy-catalog" href="http://127.0.0.1:5500/index.html#">Buy</a></li>
+                        <li><a class="mobile-menu-link navigation__item" href="http://127.0.0.1:5500/index.html#">Add advert</a></li>
+                      </ul>
+                </li>
+                <li><a class="openMap mobile-menu-link navigation__item" href="http://127.0.0.1:5500/index.html#">Map</a></li>
+                <li><a class="mobile-menu-link navigation__item" href="http://127.0.0.1:5500/index.html#">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- SLIDER -->
+    <div id="slider" class="slider" style="display: none;">
+        
+        <a onclick="next()" class="control_next">&gt;</a>
+        <a onclick="prev()" class="control_prev">&lt;</a>
+        <ul>
+            <li class="slide"><img src="./Cobalt_files/kvartira.jpg" alt=""><h1>Cobalt</h1></li>
+            <li class="slide"><img src="./Cobalt_files/kvartira3.jpg" alt=""><h1>Best Service</h1></li>
+            <li class="slide"><img src="./Cobalt_files/kvartira2.jpg" alt=""><h1>Best Offers</h1></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" style="display: flex;">
+        <!-- filter -->
+        <div class="filter">
+            <div class="select-wrap">
+                <span class="arrow"></span>
+                <select class="district" name="district" id="dictrict">
+                    <option value="noneSelected">District</option>
+                    <option value="svytoshinsky">Svytoshinsky</option>
+                    <option value="podolsky">Podolsky</option>
+                    <option value="shevchenkovsky">Shevchenkovsky</option>
+                    <option value="solomensky">Solomensky</option>
+                </select>
+            </div>
+            <div class="select-wrap">
+                <span class="arrow"></span>
+                <select class="rooms" name="Rooms" id="rooms">
+                    <option value="noneSelected">Rooms</option>
+                    <option value="1">1 Room</option>
+                    <option value="2">2 Rooms</option>
+                    <option value="3">3 Rooms</option>
+                    <option value="4">4 Rooms</option>
+                </select>
+            </div>
+            <div class="select-wrap">
+                <span class="arrow"></span>
+                <select class="type-of-building" name="type" id="type-of-building">
+                    <option value="noneSelected">Type of Building</option>
+                    <option value="new">New</option>
+                    <option value="old">Old</option>
+                </select>
+            </div>
+            <div class="select-wrap">
+                <span class="arrow"></span>
+                <select class="developer" name="developer" id="developer">
+                    <option value="noneSelected">Developer</option>
+                    <option value="stolitsa">Stolitsa Group</option>
+                    <option value="bud">bUd Development</option>
+                    <option value="saga">Saga Development</option>
+                </select>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="content">
+            <div class="content__wrapper"><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">50.000$</span><h3>Svytoshinsky district</h3><div class="hover-description">Rooms: 1</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">30.000$</span><h3>Podolsky district</h3><div class="hover-description">Rooms: 2</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">74.999$</span><h3>Shevchenkovsky district</h3><div class="hover-description">Rooms: 1</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">50.000$</span><h3>Svytoshinsky district</h3><div class="hover-description">Rooms: 1</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">50.000$</span><h3>Svytoshinsky district</h3><div class="hover-description">Rooms: 1</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">30.000$</span><h3>Podolsky district</h3><div class="hover-description">Rooms: 2</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">74.999$</span><h3>Shevchenkovsky district</h3><div class="hover-description">Rooms: 1</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">50.000$</span><h3>Svytoshinsky district</h3><div class="hover-description">Rooms: 1</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">50.000$</span><h3>Svytoshinsky district</h3><div class="hover-description">Rooms: 1</div></div></div><div class="content__item"><img src="./Cobalt_files/img_6.jpg"><div class="content__item__text"><span class="price">30.000$</span><h3>Podolsky district</h3><div class="hover-description">Rooms: 2</div></div></div></div>
+            <ul class="pagination"><li id="1" class="pagination-item">1</li><li id="2" class="pagination-item">2</li><li id="3" class="pagination-item">3</li><li id="4" class="pagination-item">4</li></ul>
+            
+        </div>
+        <div class="content__selected-item">
+            <img src="./Cobalt_files/img_6.jpg" alt="img">
+            <div class="info">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita porro sapiente provident voluptates dolorem praesentium.</h1>
+                <h3>c.Kyiv, Svytoshinsky district</h3>
+                <p>Rooms: 1. Building type: New</p>
+                <span class="price">49.999$</span>
+                <div class="buy">Online pre-oder</div>
+            </div>
+            
+        </div>
+        
+    </main>
+    <!-- Services -->
+    <div id="services" style="display: none;">
+        <h1>SERVICES</h1>
+        <div class="services__wrap">
+            <div class="services__item">
+                <img src="./Cobalt_files/loan.svg" alt="buy">
+                <h3>Buying apartments</h3>
+            </div>
+            <div class="services__item">
+                <img src="./Cobalt_files/sale.svg" alt="sale">
+                <h3>Sale of apartments</h3>
+            </div>
+            <div class="services__item">
+                <img src="./Cobalt_files/map.svg" alt="map">
+                <h3>Choose the desired apartment.</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="map" style="overflow: hidden; display: none;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div style="overflow: hidden;"></div><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: none;"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 983; transform: matrix(1, 0, 0, 1, -4, -130);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; z-index: 983; transform: matrix(1, 0, 0, 1, -4, -130);"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 0px;"></div></div></div><div style="width: 27px; height: 43px; overflow: hidden; position: absolute; left: -14px; top: -43px; z-index: 0;"><img alt="" src="./Cobalt_files/spotlight-poi2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 27px; height: 43px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"></div></div><div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;"><p class="gm-style-pbt"></p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"><div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><div style="width: 27px; height: 43px; overflow: hidden; position: absolute; opacity: 0; left: -14px; top: -43px; z-index: 0;"><img alt="" src="./Cobalt_files/spotlight-poi2.png" draggable="false" usemap="#gmimap0" style="position: absolute; left: 0px; top: 0px; width: 27px; height: 43px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"><map name="gmimap0" id="gmimap0"><area log="miw" coords="13.5,0,4,3.75,0,13.5,13.5,43,27,13.5,23,3.75" shape="poly" title="HERE" style="cursor: pointer; touch-action: none;"></map></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div></div><iframe aria-hidden="true" frameborder="0" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: none;" src="./Cobalt_files/saved_resource.html"></iframe></div></div></div>
+    
+
+
+
+
+
+    <!-- <script src="gulpfile.js"></script> -->
+    <script src="./Cobalt_files/main.js.Без названия"></script>
+    
+    <script>
+        function initMap(){
+            var pos = {lat: 50.451369, lng: 30.465131};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 50.451369, lng: 30.465131},
+                zoom: 17,
+                styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+ 
+            });
+            
+            var marker = new google.maps.Marker({
+                map: map,
+                position: pos, 
+                title: 'HERE',
+                
+            });
+
+            var info = new google.maps.InfoWindow({
+                content: '<h3>This is that</h3>',
+            });
+            marker.addListener('click', function(){
+                info.p
+            })
+        }
+    </script>
+    
+    <script src="./Cobalt_files/js" async="" defer=""></script>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

@@ -5,7 +5,9 @@ roomsSelect = document.querySelector('.rooms'),
 typeSelect = document.querySelector('.type-of-building'),
 developerSelect = document.querySelector('.developer'),
 contentWrapper = document.querySelector('.content__wrapper'),
-blockContent = document.querySelector('.content');
+blockContent = document.querySelector('.content'),
+filterBlock = document.querySelector('.filter'),
+contentSelected = document.querySelector('.content__selected-item');
 
 
 // addEventLitener for select items to get #values and $filteItems() ant $CreateContentItems() on each 'change'
@@ -87,13 +89,13 @@ let contentLocalStorage = [
 
 
 // LocalStorage 'content'
-window.addEventListener
+
 localStorage.setItem('content', JSON.stringify(contentLocalStorage));
 let content = JSON.parse(localStorage.getItem('content'));
 
 
 
-
+const pagination = document.querySelector('.pagination');
 // filtration by rooms, district, developer, type
 function filterItems(){
 return content.filter( item => Object.entries(myFilter)
@@ -104,12 +106,15 @@ return content.filter( item => Object.entries(myFilter)
 
 
 function showThisItem(){
-console.log(1)
+    contentWrapper.style.display = 'none';
+    filterBlock.style.display = 'none';
+    pagination.style.display = 'none';
+    contentSelected.style.display = 'flex';
 }
 
 // Pagination
 function creatingContentItems(){
-const pagination = document.querySelector('.pagination');
+
 let items = [];
 let notesOnPage = 10;
 pagination.innerHTML="";
