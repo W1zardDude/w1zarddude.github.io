@@ -393,7 +393,7 @@ main {
         main .content__selected-item .content__selected-item__wrapper .info .info__description {
           padding: 5px; }
         main .content__selected-item .content__selected-item__wrapper .info .info__district {
-          color: white;
+          text-decoration: underline;
           padding: 5px; }
         main .content__selected-item .content__selected-item__wrapper .info .info__price {
           color: #f89d13;

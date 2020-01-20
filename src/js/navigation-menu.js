@@ -2,6 +2,9 @@ const header = document.getElementById('header'),
       slider = document.getElementById('slider'),
       mainContent = document.getElementById('main-content'),
       services = document.querySelector('#services'),
+      contentSelectedItem = document.querySelector('.content__selected-item'),
+      filter = document.querySelector('.filter'),
+      blockContent = document.querySelector('.content'),
       buttonMap = Array.from(document.querySelectorAll('.openMap')),
       map = document.getElementById('map'),
       homeButton = Array.from(document.querySelectorAll('.home')),
@@ -32,11 +35,15 @@ servicesButton.forEach(button =>{
 
 buyButton.forEach(button =>{
     button.addEventListener('click', function(){
+        
         header.style.display = 'flex';
         slider.style.display = 'none';
         mainContent.style.display = 'flex';
         map.style.display = 'none';
         services.style.display = 'none';
+        contentSelectedItem.style.display = 'none';
+        filter.style.display = 'flex';
+        blockContent.style.display = 'flex';
     })
 })
 
