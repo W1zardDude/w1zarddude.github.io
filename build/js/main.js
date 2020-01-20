@@ -830,8 +830,9 @@ function creatingContentItems() {
                 imgSelected = document.querySelector('.img-selected-item');
             imgSelected.src = "../img/" + note.img;
             info__district.innerHTML = note.description;
-            info__description.innerHTML = note.hoverDescription;
+            info__description.innerHTML = note.hoverdDescription;
             info__price.innerHTML = note.price;
+            console.log(1);
           });
           contentWrapper.appendChild(contentItem);
         };
@@ -899,7 +900,7 @@ function firstElements() {
             imgSelected = document.querySelector('.img-selected-item');
         imgSelected.src = "../img/" + note.img;
         info__district.innerHTML = note.description;
-        info__description.innerHTML = note.hoverDescription;
+        info__description.innerHTML = note.hoverdDescription;
         info__price.innerHTML = note.price;
       });
       contentWrapper.appendChild(contentItem);
