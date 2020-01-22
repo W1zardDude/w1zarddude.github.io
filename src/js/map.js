@@ -5,6 +5,7 @@ function initMap(){
     });
     
     
+    
 
     for(let value of content){
       new google.maps.Marker({
