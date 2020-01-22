@@ -489,4 +489,10 @@ main {
   .map-selected-item .map__pre-order:hover {
     cursor: pointer; }
 
+.wrap {
+  z-index: 99;
+  position: absolute;
+  top: 95px;
+  left: 250px; }
+
 /*# sourceMappingURL=main.css.map */

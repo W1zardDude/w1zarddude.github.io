@@ -24,9 +24,19 @@ function dataChange(){
 }
 
 districtSelect.addEventListener('change', ()=>{
+        
+    mapFilter.district = document.querySelector('#dictrictMap').value;
+    console.log(mapFilter.district)
+  })
+  let mapFilter = {
+    district: 'noneselected',
+  }
+
+districtSelect.addEventListener('change', ()=>{
 
 myFilter.district = districtSelect.value;
 dataChange()
+markers();
 
 })
 roomsSelect.addEventListener('change', ()=>{
@@ -295,8 +305,6 @@ function buildContent(){
           contentItemText.appendChild(district);
           contentItemText.appendChild(hoverDescription);
           contentItem.appendChild(contentItemText);
-        //   console.log(contentItem)
-        console.log(priceT)
           contentItem.addEventListener('click', function(){
                 blockContent.style.display = 'none';
                 contentSelected.style.display = 'flex';

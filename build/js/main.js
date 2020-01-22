@@ -1,6 +1,14 @@
 "use strict";
 "use strict";
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {
@@ -9,40 +17,69 @@ function initMap() {
     },
     zoom: 14
   });
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+  document.querySelector('#dictrictMap').addEventListener('change', function () {
+    mapFilter.district = document.querySelector('#dictrictMap').value;
+    filteredContentMap();
+    createMarkers();
+  });
+  var mapFilter = {
+    district: 'noneSelected'
+  };
 
-  try {
-    var _loop = function _loop() {
-      var value = _step.value;
-      new google.maps.Marker({
-        map: map,
-        position: value.position,
-        title: value.district
-      }).addListener('click', function () {
-        document.querySelector('.map__img').src = 'img/' + value.img;
-        document.querySelector('.map__district').innerHTML = value.description;
-        document.querySelector('.map__description').innerHTML = value.hoverdDescription;
-        document.querySelector('.map__price').innerHTML = value.price;
-        document.querySelector('.map-selected-item').style.display = 'flex';
+  function filteredContentMap() {
+    return content.filter(function (item) {
+      return Object.entries(mapFilter).filter(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+            field = _ref2[0],
+            value = _ref2[1];
+
+        return value !== 'noneSelected';
+      }).every(function (_ref3) {
+        var _ref4 = _slicedToArray(_ref3, 2),
+            field = _ref4[0],
+            value = _ref4[1];
+
+        return item[field] === value;
       });
-    };
+    });
+  }
 
-    for (var _iterator = content[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      _loop();
-    }
-  } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
-  } finally {
+  function createMarkers() {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
     try {
-      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-        _iterator["return"]();
+      var _loop = function _loop() {
+        var value = _step.value;
+        new google.maps.Marker({
+          map: map,
+          position: value.position,
+          title: value.district
+        }).addListener('click', function () {
+          document.querySelector('.map__img').src = 'img/' + value.img;
+          document.querySelector('.map__district').innerHTML = value.description;
+          document.querySelector('.map__description').innerHTML = value.hoverdDescription;
+          document.querySelector('.map__price').innerHTML = value.price;
+          document.querySelector('.map-selected-item').style.display = 'flex';
+        });
+      };
+
+      for (var _iterator = filteredContentMap()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        _loop();
       }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
     } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
       }
     }
   }
@@ -145,8 +182,16 @@ function dataChange() {
 }
 
 districtSelect.addEventListener('change', function () {
+  mapFilter.district = document.querySelector('#dictrictMap').value;
+  console.log(mapFilter.district);
+});
+var mapFilter = {
+  district: 'noneselected'
+};
+districtSelect.addEventListener('change', function () {
   myFilter.district = districtSelect.value;
   dataChange();
+  markers();
 });
 roomsSelect.addEventListener('change', function () {
   myFilter.rooms = roomsSelect.value;
@@ -585,9 +630,7 @@ function buildContent() {
     contentItemText.appendChild(priceText);
     contentItemText.appendChild(district);
     contentItemText.appendChild(hoverDescription);
-    contentItem.appendChild(contentItemText); //   console.log(contentItem)
-
-    console.log(priceT);
+    contentItem.appendChild(contentItemText);
     contentItem.addEventListener('click', function () {
       blockContent.style.display = 'none';
       contentSelected.style.display = 'flex';
