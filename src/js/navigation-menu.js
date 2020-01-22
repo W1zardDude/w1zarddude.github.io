@@ -1,5 +1,4 @@
 const header = document.getElementById('header'),
-      slider = document.getElementById('slider'),
       mainContent = document.getElementById('main-content'),
       services = document.querySelector('#services'),
       contentSelectedItem = document.querySelector('.content__selected-item'),

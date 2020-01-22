@@ -134,7 +134,6 @@ function initMap() {
 "use strict";
 
 var header = document.getElementById('header'),
-    slider = document.getElementById('slider'),
     mainContent = document.getElementById('main-content'),
     services = document.querySelector('#services'),
     contentSelectedItem = document.querySelector('.content__selected-item'),
@@ -211,25 +210,31 @@ var districtSelect = document.querySelector('.district'),
     filterBlock = document.querySelector('.filter'),
     contentSelected = document.querySelector('.content__selected-item'); // addEventLitener for select items to get #values and $filteItems() ant $CreateContentItems() on each 'change'
 
+function dataChange() {
+  contentWrapper.innerHTML = '';
+  filterItems();
+  state.data = filterItems();
+  buildContent();
+}
+
 districtSelect.addEventListener('change', function () {
   myFilter.district = districtSelect.value;
-  filterItems();
-  creatingContentItems();
+  dataChange();
 });
 roomsSelect.addEventListener('change', function () {
   myFilter.rooms = roomsSelect.value;
-  filterItems();
-  creatingContentItems();
+  contentWrapper.innerHTML = '';
+  dataChange();
 });
 typeSelect.addEventListener('change', function () {
   myFilter.type = typeSelect.value;
-  filterItems();
-  creatingContentItems();
+  contentWrapper.innerHTML = '';
+  dataChange();
 });
 developerSelect.addEventListener('change', function () {
   myFilter.developer = developerSelect.value;
-  filterItems();
-  creatingContentItems();
+  contentWrapper.innerHTML = '';
+  dataChange();
 }); // Object filter
 
 var myFilter = {
@@ -239,6 +244,510 @@ var myFilter = {
   developer: "noneSelected"
 };
 var contentLocalStorage = [{
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkFjord.jpg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '2',
+  type: 'new',
+  developer: 'bud',
+  img: "jkOtrada.jpg",
+  price: '30.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 2'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'old',
+  developer: 'saga',
+  img: "jkDelrey.png",
+  price: '74.999$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'solomensky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkRad.jpeg",
+  price: '50.000$',
+  description: "Solomensky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '3',
+  type: 'new',
+  developer: 'bud',
+  img: "jkSalut.jpg",
+  price: '20.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkZarichnii.jpeg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkCreatorCity.png",
+  price: '30.000$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "img_6.jpg",
+  price: '80.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkFjord.jpg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '2',
+  type: 'new',
+  developer: 'bud',
+  img: "jkOtrada.jpg",
+  price: '30.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 2'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'old',
+  developer: 'saga',
+  img: "jkDelrey.png",
+  price: '74.999$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'solomensky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkRad.jpeg",
+  price: '50.000$',
+  description: "Solomensky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '3',
+  type: 'new',
+  developer: 'bud',
+  img: "jkSalut.jpg",
+  price: '20.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkZarichnii.jpeg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkCreatorCity.png",
+  price: '30.000$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "img_6.jpg",
+  price: '80.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkFjord.jpg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '2',
+  type: 'new',
+  developer: 'bud',
+  img: "jkOtrada.jpg",
+  price: '30.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 2'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'old',
+  developer: 'saga',
+  img: "jkDelrey.png",
+  price: '74.999$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'solomensky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkRad.jpeg",
+  price: '50.000$',
+  description: "Solomensky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '3',
+  type: 'new',
+  developer: 'bud',
+  img: "jkSalut.jpg",
+  price: '20.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkZarichnii.jpeg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkCreatorCity.png",
+  price: '30.000$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "img_6.jpg",
+  price: '80.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkFjord.jpg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '2',
+  type: 'new',
+  developer: 'bud',
+  img: "jkOtrada.jpg",
+  price: '30.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 2'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'old',
+  developer: 'saga',
+  img: "jkDelrey.png",
+  price: '74.999$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'solomensky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkRad.jpeg",
+  price: '50.000$',
+  description: "Solomensky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '3',
+  type: 'new',
+  developer: 'bud',
+  img: "jkSalut.jpg",
+  price: '20.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkZarichnii.jpeg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkCreatorCity.png",
+  price: '30.000$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "img_6.jpg",
+  price: '80.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkFjord.jpg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '2',
+  type: 'new',
+  developer: 'bud',
+  img: "jkOtrada.jpg",
+  price: '30.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 2'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'old',
+  developer: 'saga',
+  img: "jkDelrey.png",
+  price: '74.999$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'solomensky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkRad.jpeg",
+  price: '50.000$',
+  description: "Solomensky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '3',
+  type: 'new',
+  developer: 'bud',
+  img: "jkSalut.jpg",
+  price: '20.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkZarichnii.jpeg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkCreatorCity.png",
+  price: '30.000$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "img_6.jpg",
+  price: '80.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkFjord.jpg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '2',
+  type: 'new',
+  developer: 'bud',
+  img: "jkOtrada.jpg",
+  price: '30.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 2'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'old',
+  developer: 'saga',
+  img: "jkDelrey.png",
+  price: '74.999$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'solomensky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkRad.jpeg",
+  price: '50.000$',
+  description: "Solomensky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '3',
+  type: 'new',
+  developer: 'bud',
+  img: "jkSalut.jpg",
+  price: '20.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkZarichnii.jpeg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkCreatorCity.png",
+  price: '30.000$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "img_6.jpg",
+  price: '80.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkFjord.jpg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '2',
+  type: 'new',
+  developer: 'bud',
+  img: "jkOtrada.jpg",
+  price: '30.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 2'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'old',
+  developer: 'saga',
+  img: "jkDelrey.png",
+  price: '74.999$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'solomensky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkRad.jpeg",
+  price: '50.000$',
+  description: "Solomensky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'podolsky',
+  rooms: '3',
+  type: 'new',
+  developer: 'bud',
+  img: "jkSalut.jpg",
+  price: '20.000$',
+  description: "Podolsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkZarichnii.jpeg",
+  price: '50.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'shevchenkovsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "jkCreatorCity.png",
+  price: '30.000$',
+  description: "Shevchenkovsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
+  district: 'svytoshinsky',
+  rooms: '1',
+  type: 'new',
+  developer: 'bud',
+  img: "img_6.jpg",
+  price: '80.000$',
+  description: "Svytoshinsky district",
+  hoverdDescription: 'Rooms: 1'
+}, {
   district: 'svytoshinsky',
   rooms: '1',
   type: 'new',
@@ -764,166 +1273,124 @@ function filterItems() {
       return item[field] === value;
     });
   });
-} // Pagination
+} // settings for pagination
 
 
-function creatingContentItems() {
-  var items = [];
-  var notesOnPage = 10;
-  pagination.innerHTML = "";
-  var counterItems = Math.ceil(filterItems().length / notesOnPage);
+var state = {
+  data: filterItems(),
+  page: 1,
+  items: 10,
+  maxButtons: 5
+}; // Logic for pagination 
 
-  for (var i = 1; i <= counterItems; i++) {
-    var li = document.createElement('li');
-    li.innerHTML = i;
-    li.id = i;
-    li.classList.add('pagination-item');
-    pagination.appendChild(li);
-    items.push(li);
+function createPagination(data, page, items) {
+  var start = (page - 1) * items;
+  var end = start + items;
+  var itemsData = data.slice(start, end);
+  var pages = Math.ceil(data.length / items);
+  return {
+    'data': itemsData,
+    'pages': pages
+  };
+} // Creating buttons for pagination
+
+
+function pageButtons(pages) {
+  pagination.innerHTML = '';
+  var left = state.page - Math.floor(state.maxButtons / 2);
+  var right = state.page + Math.floor(state.maxButtons / 2);
+
+  if (left < 1) {
+    left = 1;
+    right = state.maxButtons;
   }
 
-  contentWrapper.innerHTML = '';
-  firstElements();
+  if (right > pages) {
+    left = pages - (state.maxButtons - 1);
+    right = pages;
 
-  for (var item in items) {
-    items[item].addEventListener('click', function () {
-      var pageNum = +this.innerHTML;
+    if (left < 1) {
+      left = 1;
+    }
+  }
+
+  for (var page = left; page <= right; page++) {
+    pagination.innerHTML += "<li value=\"".concat(page, "\" id=\"").concat(page, "\" class=\"pagination-item\">").concat(page, "</li>");
+  }
+
+  if (state.page != 1) {
+    pagination.innerHTML = "<li value=\"1\" id=\"".concat(page, "\" class=\"pagination-item\">&#171; First page</li>") + pagination.innerHTML;
+  }
+
+  if (state.page != pages) {
+    pagination.innerHTML += "<li value=\"".concat(pages, "\" id=\"").concat(page, "\" class=\"pagination-item\">Last page &#187;</li>");
+  }
+
+  Array.from(document.querySelectorAll('.pagination-item')).forEach(function (item) {
+    item.addEventListener('click', function () {
       contentWrapper.innerHTML = '';
-      var start = (pageNum - 1) * notesOnPage;
-      var end = start + notesOnPage;
-      var notes = filterItems().slice(start, end);
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        var _loop = function _loop() {
-          var note = _step.value;
-          var contentItem = document.createElement('div'),
-              itemImg = document.createElement('img'),
-              contentItemText = document.createElement('div'),
-              price = document.createElement('span'),
-              district = document.createElement('h3'),
-              hoverDescription = document.createElement('div');
-          contentItem.classList.add('content__item');
-          itemImg.src = "../../img/" + note.img;
-          contentItemText.classList.add('content__item__text');
-          contentItem.appendChild(itemImg);
-          price.classList.add('price');
-          price.innerHTML = note.price;
-          district.innerHTML = note.description;
-          hoverDescription.classList.add('hover-description');
-          hoverDescription.innerHTML = note.hoverdDescription;
-          contentItemText.appendChild(price);
-          contentItemText.appendChild(district);
-          contentItemText.appendChild(hoverDescription);
-          contentItem.appendChild(contentItemText);
-          contentItem.addEventListener('click', function () {
-            blockContent.style.display = 'none';
-            contentSelected.style.display = 'flex';
-            filterBlock.style.display = 'none';
-            var info__text = document.querySelector('.info__text'),
-                info__district = document.querySelector('.info__district'),
-                info__description = document.querySelector('.info__description'),
-                info__price = document.querySelector('.info__price'),
-                buy = document.querySelector('.buy'),
-                imgSelected = document.querySelector('.img-selected-item');
-            imgSelected.src = "../img/" + note.img;
-            info__district.innerHTML = note.description;
-            info__description.innerHTML = note.hoverdDescription;
-            info__price.innerHTML = note.price;
-            console.log(1);
-          });
-          contentWrapper.appendChild(contentItem);
-        };
-
-        for (var _iterator = notes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          _loop();
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-            _iterator["return"]();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
+      state.page = +item.value;
+      buildContent();
     });
-  }
+  });
 }
 
-creatingContentItems(); // first 10 element onload web page
+function buildContent() {
+  var dataBuild = createPagination(state.data, state.page, state.items);
+  var myList = dataBuild.data;
 
-function firstElements() {
-  var notes = filterItems().slice(0, 10);
-  var _iteratorNormalCompletion2 = true;
-  var _didIteratorError2 = false;
-  var _iteratorError2 = undefined;
+  var _loop = function _loop(i) {
+    var contentItem = document.createElement('div'),
+        itemImg = document.createElement('img'),
+        contentItemText = document.createElement('div'),
+        priceText = document.createElement('span'),
+        district = document.createElement('h3'),
+        hoverDescription = document.createElement('div');
+    var imgSrcT = myList[i].img,
+        priceT = myList[i].price,
+        descriptionT = myList[i].description,
+        hoverDescriptionT = myList[i].hoverdDescription;
+    contentItem.classList.add('content__item');
+    itemImg.src = "../../img/" + imgSrcT;
+    contentItemText.classList.add('content__item__text');
+    contentItem.appendChild(itemImg);
+    priceText.classList.add('price');
+    priceText.innerHTML = priceT;
+    district.innerHTML = descriptionT;
+    hoverDescription.classList.add('hover-description');
+    hoverDescription.innerHTML = hoverDescriptionT;
+    contentItemText.appendChild(priceText);
+    contentItemText.appendChild(district);
+    contentItemText.appendChild(hoverDescription);
+    contentItem.appendChild(contentItemText); //   console.log(contentItem)
 
-  try {
-    var _loop2 = function _loop2() {
-      var note = _step2.value;
-      var contentItem = document.createElement('div'),
-          itemImg = document.createElement('img'),
-          contentItemText = document.createElement('div'),
-          price = document.createElement('span'),
-          district = document.createElement('h3'),
-          hoverDescription = document.createElement('div');
-      contentItem.classList.add('content__item');
-      itemImg.src = "../img/" + note.img;
-      contentItemText.classList.add('content__item__text');
-      contentItem.appendChild(itemImg);
-      price.classList.add('price');
-      price.innerHTML = note.price;
-      district.innerHTML = note.description;
-      hoverDescription.classList.add('hover-description');
-      hoverDescription.innerHTML = note.hoverdDescription;
-      contentItemText.appendChild(price);
-      contentItemText.appendChild(district);
-      contentItemText.appendChild(hoverDescription);
-      contentItem.appendChild(contentItemText);
-      contentItem.addEventListener('click', function () {
-        blockContent.style.display = 'none';
-        contentSelected.style.display = 'flex';
-        filterBlock.style.display = 'none';
-        var info__text = document.querySelector('.info__text'),
-            info__district = document.querySelector('.info__district'),
-            info__description = document.querySelector('.info__description'),
-            info__price = document.querySelector('.info__price'),
-            buy = document.querySelector('.buy'),
-            imgSelected = document.querySelector('.img-selected-item');
-        imgSelected.src = "../img/" + note.img;
-        info__district.innerHTML = note.description;
-        info__description.innerHTML = note.hoverdDescription;
-        info__price.innerHTML = note.price;
-      });
-      contentWrapper.appendChild(contentItem);
-    };
+    console.log(priceT);
+    contentItem.addEventListener('click', function () {
+      blockContent.style.display = 'none';
+      contentSelected.style.display = 'flex';
+      filterBlock.style.display = 'none';
+      var info__text = document.querySelector('.info__text'),
+          info__district = document.querySelector('.info__district'),
+          info__description = document.querySelector('.info__description'),
+          info__price = document.querySelector('.info__price'),
+          buy = document.querySelector('.buy'),
+          imgSelected = document.querySelector('.img-selected-item');
+      imgSelected.src = "../../img/" + imgSrcT;
+      info__district.innerHTML = descriptionT;
+      info__description.innerHTML = hoverDescriptionT;
+      info__price.innerHTML = priceT;
+    });
+    contentWrapper.appendChild(contentItem);
+  };
 
-    for (var _iterator2 = notes[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-      _loop2();
-    }
-  } catch (err) {
-    _didIteratorError2 = true;
-    _iteratorError2 = err;
-  } finally {
-    try {
-      if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
-        _iterator2["return"]();
-      }
-    } finally {
-      if (_didIteratorError2) {
-        throw _iteratorError2;
-      }
-    }
+  for (var i in myList) {
+    _loop(i);
   }
+
+  pageButtons(dataBuild.pages);
 }
+
+buildContent();
 "use strict";
 
 document.body.onload = function () {
@@ -943,37 +1410,91 @@ document.body.onload = function () {
 // })
 "use strict";
 
-var liSlider = document.querySelectorAll('.slide');
-var id = 0;
+function createElementSlider() {
+  var slider = document.createElement('div');
+  slider.classList.add('slider');
+  slider.id = 'slider';
+  var aNext = document.createElement('a');
+  aNext.classList.add('control_next');
+  aNext.innerHTML = ">";
+  aNext.addEventListener('click', next);
+  var aPrev = document.createElement('a');
+  aPrev.classList.add('control_prev');
+  aPrev.innerHTML = "<";
+  aPrev.addEventListener('click', prev);
+  var ul = document.createElement('ul');
+  var liFirst = document.createElement('li');
+  var liSecond = document.createElement('li');
+  var liThird = document.createElement('li');
+  liFirst.classList.add('slide');
+  liSecond.classList.add('slide');
+  liThird.classList.add('slide');
+  var imgFirst = document.createElement('img');
+  var imgSecond = document.createElement('img');
+  var imgThird = document.createElement('img');
+  imgFirst.src = '../../img/kvartira.jpg';
+  imgSecond.src = '../../img/kvartira3.jpg';
+  imgThird.src = '../../img/kvartira2.jpg';
+  var h1First = document.createElement('h1');
+  var h1Second = document.createElement('h1');
+  var h1Third = document.createElement('h1');
+  h1First.innerHTML = 'COBALT';
+  h1Second.innerHTML = 'BEST Service';
+  h1Third.innerHTML = 'BEST OFFERS';
+  liFirst.appendChild(imgFirst);
+  liSecond.appendChild(imgSecond);
+  liThird.appendChild(imgThird);
+  liFirst.appendChild(h1First);
+  liSecond.appendChild(h1Second);
+  liThird.appendChild(h1Third);
+  ul.appendChild(liFirst);
+  ul.appendChild(liSecond);
+  ul.appendChild(liThird);
+  slider.appendChild(aNext);
+  slider.appendChild(aPrev);
+  slider.appendChild(ul);
+  document.querySelector('body').appendChild(slider);
+  var liSlider = document.querySelectorAll('.slide');
+  var id = 0;
 
-function next() {
-  if (id >= 2) {
-    liSlider[id].style.zIndex = '1';
-    liSlider[0].style.zIndex = '100';
-    liSlider[id].style.opacity = "0";
-    liSlider[0].style.opacity = "1";
-    id = 0;
-  } else {
-    liSlider[id].style.zIndex = "1";
-    liSlider[id + 1].style.zIndex = "100";
-    liSlider[id].style.opacity = "0";
-    liSlider[id + 1].style.opacity = "1";
-    id++;
+  function next() {
+    if (id >= 2) {
+      liSlider[id].style.zIndex = '1';
+      liSlider[0].style.zIndex = '100';
+      liSlider[id].style.opacity = "0";
+      liSlider[0].style.opacity = "1";
+      id = 0;
+    } else {
+      liSlider[id].style.zIndex = "1";
+      liSlider[id + 1].style.zIndex = "100";
+      liSlider[id].style.opacity = "0";
+      liSlider[id + 1].style.opacity = "1";
+      id++;
+    }
+  }
+
+  function prev() {
+    if (id <= 0) {
+      liSlider[id].style.zIndex = '1';
+      liSlider[2].style.zIndex = '100';
+      liSlider[id].style.opacity = "0";
+      liSlider[2].style.opacity = "1";
+      id = 2;
+    } else {
+      liSlider[id].style.zIndex = "1";
+      liSlider[id - 1].style.zIndex = "100";
+      liSlider[id].style.opacity = "0";
+      liSlider[id - 1].style.opacity = "1";
+      id--;
+    }
   }
 }
 
-function prev() {
-  if (id <= 0) {
-    liSlider[id].style.zIndex = '1';
-    liSlider[2].style.zIndex = '100';
-    liSlider[id].style.opacity = "0";
-    liSlider[2].style.opacity = "1";
-    id = 2;
-  } else {
-    liSlider[id].style.zIndex = "1";
-    liSlider[id - 1].style.zIndex = "100";
-    liSlider[id].style.opacity = "0";
-    liSlider[id - 1].style.opacity = "1";
-    id--;
+window.addEventListener('load', function () {
+  switch (new URL(location).pathname) {
+    case '/slider':
+      break;
   }
-}
+
+  createElementSlider();
+});

@@ -309,10 +309,14 @@ main {
       main .content .pagination li {
         margin: 2px;
         padding: 2px 4px;
-        border: 1px solid rgba(138, 138, 138, 0.466);
-        cursor: pointer; }
-      main .content .pagination li:hover, main .content .pagination .active {
-        border-color: red; }
+        border: 2px solid rgba(138, 138, 138, 0.466);
+        box-shadow: 0 2px 5px 3px rgba(173, 173, 173, 0.336);
+        padding: 5px;
+        margin: 4px;
+        cursor: pointer;
+        transition: border-color .1s linear; }
+      main .content .pagination li:hover {
+        border-color: rgba(255, 0, 0, 0.336); }
     main .content .content__wrapper {
       display: flex;
       justify-content: center;
