@@ -76,6 +76,30 @@
             display: block;
         }
     }
+    .map-selected-item{
+        top: 80px;
+        left: 10px;
+        width: 150px;
+        height: auto;
+        .map__img{
+            width: 150px;
+            height: 150px;
+        }
+        .map__district{
+            
+        }
+        .map__description{
+    
+        }
+        .map__price{
+    
+        }
+        .map__pre-order{
+            
+        }
+        
+        
+    }
 }
 @media screen and (max-width: 760px){
     main{

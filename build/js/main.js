@@ -2,133 +2,56 @@
 "use strict";
 
 function initMap() {
-  var pos = {
-    lat: 50.451369,
-    lng: 30.465131
-  };
   var map = new google.maps.Map(document.getElementById('map'), {
     center: {
       lat: 50.451369,
       lng: 30.465131
     },
-    zoom: 17,
-    styles: [{
-      elementType: 'geometry',
-      stylers: [{
-        color: '#242f3e'
-      }]
-    }, {
-      elementType: 'labels.text.stroke',
-      stylers: [{
-        color: '#242f3e'
-      }]
-    }, {
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#746855'
-      }]
-    }, {
-      featureType: 'administrative.locality',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#d59563'
-      }]
-    }, {
-      featureType: 'poi',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#d59563'
-      }]
-    }, {
-      featureType: 'poi.park',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#263c3f'
-      }]
-    }, {
-      featureType: 'poi.park',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#6b9a76'
-      }]
-    }, {
-      featureType: 'road',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#38414e'
-      }]
-    }, {
-      featureType: 'road',
-      elementType: 'geometry.stroke',
-      stylers: [{
-        color: '#212a37'
-      }]
-    }, {
-      featureType: 'road',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#9ca5b3'
-      }]
-    }, {
-      featureType: 'road.highway',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#746855'
-      }]
-    }, {
-      featureType: 'road.highway',
-      elementType: 'geometry.stroke',
-      stylers: [{
-        color: '#1f2835'
-      }]
-    }, {
-      featureType: 'road.highway',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#f3d19c'
-      }]
-    }, {
-      featureType: 'transit',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#2f3948'
-      }]
-    }, {
-      featureType: 'transit.station',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#d59563'
-      }]
-    }, {
-      featureType: 'water',
-      elementType: 'geometry',
-      stylers: [{
-        color: '#17263c'
-      }]
-    }, {
-      featureType: 'water',
-      elementType: 'labels.text.fill',
-      stylers: [{
-        color: '#515c6d'
-      }]
-    }, {
-      featureType: 'water',
-      elementType: 'labels.text.stroke',
-      stylers: [{
-        color: '#17263c'
-      }]
-    }]
+    zoom: 14
   });
-  var marker = new google.maps.Marker({
-    map: map,
-    position: pos,
-    title: 'HERE'
-  });
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    var _loop = function _loop() {
+      var value = _step.value;
+      new google.maps.Marker({
+        map: map,
+        position: value.position,
+        title: value.district
+      }).addListener('click', function () {
+        document.querySelector('.map__img').src = 'img/' + value.img;
+        document.querySelector('.map__district').innerHTML = value.description;
+        document.querySelector('.map__description').innerHTML = value.hoverdDescription;
+        document.querySelector('.map__price').innerHTML = value.price;
+        document.querySelector('.map-selected-item').style.display = 'flex';
+      });
+    };
+
+    for (var _iterator = content[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      _loop();
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+
   var info = new google.maps.InfoWindow({
     content: '<h3>This is that</h3>'
   });
-  marker.addListener('click', function () {
-    info.p;
+  map.addListener('click', function () {
+    document.querySelector('.map-selected-item').style.display = 'none';
   });
 }
 "use strict";
@@ -159,6 +82,7 @@ servicesButton.forEach(function (button) {
     mainContent.style.display = 'none';
     map.style.display = 'none';
     services.style.display = 'flex';
+    document.querySelector('.map-selected-item').style.display = 'none';
   });
 });
 buyButton.forEach(function (button) {
@@ -171,6 +95,7 @@ buyButton.forEach(function (button) {
     contentSelectedItem.style.display = 'none';
     filter.style.display = 'flex';
     blockContent.style.display = 'flex';
+    document.querySelector('.map-selected-item').style.display = 'none';
   });
 });
 buttonMap.forEach(function (button) {
@@ -180,6 +105,7 @@ buttonMap.forEach(function (button) {
     mainContent.style.display = 'none';
     map.style.display = 'block';
     services.style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
   });
 });
 homeButton.forEach(function (button) {
@@ -189,6 +115,7 @@ homeButton.forEach(function (button) {
     mainContent.style.display = 'none';
     map.style.display = 'none';
     services.style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
   });
 });
 "use strict";
@@ -251,7 +178,11 @@ var contentLocalStorage = [{
   img: "jkFjord.jpg",
   price: '50.000$',
   description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
+  hoverdDescription: 'Rooms: 1',
+  position: {
+    lat: 50.449101,
+    lng: 30.490206
+  }
 }, {
   district: 'podolsky',
   rooms: '2',
@@ -260,7 +191,11 @@ var contentLocalStorage = [{
   img: "jkOtrada.jpg",
   price: '30.000$',
   description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
+  hoverdDescription: 'Rooms: 2',
+  position: {
+    lat: 50.444286,
+    lng: 30.497251
+  }
 }, {
   district: 'shevchenkovsky',
   rooms: '1',
@@ -269,989 +204,121 @@ var contentLocalStorage = [{
   img: "jkDelrey.png",
   price: '74.999$',
   description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '2',
-  type: 'new',
-  developer: 'bud',
-  img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'old',
-  developer: 'saga',
-  img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'solomensky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'podolsky',
-  rooms: '3',
-  type: 'new',
-  developer: 'bud',
-  img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'shevchenkovsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1'
-}, {
-  district: 'svytoshinsky',
-  rooms: '1',
-  type: 'new',
-  developer: 'bud',
-  img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1'
-}]; // LocalStorage 'content'
+  hoverdDescription: 'Rooms: 1',
+  position: {
+    lat: 50.445267,
+    lng: 30.489825
+  }
+} // {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
+// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
+// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
+// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
+]; // LocalStorage 'content'
 
 localStorage.setItem('content', JSON.stringify(contentLocalStorage));
 var content = JSON.parse(localStorage.getItem('content'));
@@ -1409,6 +476,7 @@ document.body.onload = function () {
 //     } )
 // })
 "use strict";
+"use strict";
 
 function createElementSlider() {
   var slider = document.createElement('div');
@@ -1432,13 +500,13 @@ function createElementSlider() {
   var imgFirst = document.createElement('img');
   var imgSecond = document.createElement('img');
   var imgThird = document.createElement('img');
-  imgFirst.src = '../../img/kvartira.jpg';
-  imgSecond.src = '../../img/kvartira3.jpg';
+  imgFirst.src = '../../img/kvartira3.jpg';
+  imgSecond.src = '../../img/kvartira.jpg';
   imgThird.src = '../../img/kvartira2.jpg';
   var h1First = document.createElement('h1');
   var h1Second = document.createElement('h1');
   var h1Third = document.createElement('h1');
-  h1First.innerHTML = 'COBALT';
+  h1First.innerHTML = 'COBALT - best prices';
   h1Second.innerHTML = 'BEST Service';
   h1Third.innerHTML = 'BEST OFFERS';
   liFirst.appendChild(imgFirst);

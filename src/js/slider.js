@@ -26,15 +26,15 @@ const imgFirst = document.createElement('img');
 const imgSecond = document.createElement('img');
 const imgThird = document.createElement('img');
 
-imgFirst.src = '../../img/kvartira.jpg';
-imgSecond.src = '../../img/kvartira3.jpg';
+imgFirst.src = '../../img/kvartira3.jpg';
+imgSecond.src = '../../img/kvartira.jpg';
 imgThird.src = '../../img/kvartira2.jpg';
 
 const h1First = document.createElement('h1');
 const h1Second = document.createElement('h1');
 const h1Third = document.createElement('h1');
 
-h1First.innerHTML = 'COBALT';
+h1First.innerHTML = 'COBALT - best prices';
 h1Second.innerHTML = 'BEST Service';
 h1Third.innerHTML = 'BEST OFFERS';
 
