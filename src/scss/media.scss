@@ -41,6 +41,17 @@
             }
         }
     }
+    .registration{
+        justify-content: center;
+        align-items: space-between;
+        flex-direction: column;
+        form{
+            width: 300px;
+            height: 300px;
+            margin: 15px;
+        }
+    }
+    
 
     #services{
         display: none;
@@ -165,6 +176,13 @@
                     height: 99vw;
                 }
             }
+        }
+    }
+    .registration{
+        form{
+            width: 300px;
+            height: 200px;
+            margin: 10px;
         }
     }
 }

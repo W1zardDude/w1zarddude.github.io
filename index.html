@@ -30,16 +30,17 @@
         <nav class="navigation">
             <ul>
                 <li><a class="home navigation__item">Home</a></li>
-                <li><a class="services navigation__item" href="#services">Services</a></li>
+                <li><a class="services navigation__item">Services</a></li>
                 <li>
-                    <a class='catalog' href="#">Catalog <span class="arrow"></span></a>
+                    <a class='catalog' >Catalog <span class="arrow"></span></a>
                     <ul class="dropdown navigation__item">
-                        <li><a class="navigation__item buy-catalog" href="#">Buy</a></li>
-                        <li><a class="navigation__item" href="#">Add advert</a></li>
+                        <li><a class="navigation__item buy-catalog" >Buy</a></li>
+                        <li><a class="navigation__item" >Add advert</a></li>
                       </ul>
                 </li>
-                <li><a class="openMap navigation__item" href="#">Map</a></li>
-                <li><a class="navigation__item" href="#">Contacts</a></li>
+                <li><a class="openMap navigation__item" >Map</a></li>
+                <li><a class="navigation__item" >Contacts</a></li>
+                <li><a class="login navigation__item">Sign Up</a></li>
             </ul>
         </nav>
         <!-- Mobile menu -->
@@ -48,16 +49,17 @@
         <nav class="mobile-navigation">
             <ul id="mob-menu">
                 <li><a class="home mobile-menu-link navigation__item">Home</a></li>
-                <li><a class="services mobile-menu-link navigation__item" href="#">Services</a></li>
+                <li><a class="services mobile-menu-link navigation__item" >Services</a></li>
                 <li>
-                    <a href="#">Catalog</a>
+                    <a>Catalog</a>
                     <ul class="dropdown">
-                        <li><a class="mobile-menu-link navigation__item buy-catalog" href="#">Buy</a></li>
-                        <li><a class="mobile-menu-link navigation__item" href="#">Add advert</a></li>
+                        <li><a class="mobile-menu-link navigation__item buy-catalog">Buy</a></li>
+                        <li><a class="mobile-menu-link navigation__item">Add advert</a></li>
                       </ul>
                 </li>
-                <li><a class="openMap mobile-menu-link navigation__item" href="#">Map</a></li>
-                <li><a class="mobile-menu-link navigation__item" href="#">Contacts</a></li>
+                <li><a class="openMap mobile-menu-link navigation__item">Map</a></li>
+                <li><a class="mobile-menu-link navigation__item">Contacts</a></li>
+                <li><a class="login mobile-menu-link navigation__item">Sign Up</a></li>
             </ul>
         </nav>
     </header>
@@ -158,6 +160,7 @@
         <a class="map__pre-order">Pre-Order</a>
 
     </div>
+   
     <div class="wrap">
         <select class="districtMap" name="districtMAP" id="dictrictMap">
             <option value="noneSelected">District</option>
@@ -170,9 +173,25 @@
     <div id="map">
         
     </div>
+
+    <div class="registration">
+        <form class="registration__create-acount" action="">
+            <h2>Registration</h2>
+            <input type="text" name="registration__login" id="regLogin" placeholder="Create login">
+            <input type="password" name="" id="regPassword" placeholder="Create password">
+            <input type="password" name="" id="repRegPassword" placeholder="Repeat your password">
+            <a class="regButton">Register</a>
+        </form>
+        <form class="registration__login" action="">
+            <h2>Log In</h2>
+            <input type="text" name="login" id="login" placeholder="Login">
+            <input type="password" name="password" id="password" placeholder="Password">
+            <a class="logButton">Log In</a>
+        </form>
+    </div>
     
 
-
+    
 
 
     <!-- <script src="gulpfile.js"></script> -->

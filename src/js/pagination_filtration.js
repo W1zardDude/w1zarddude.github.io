@@ -24,15 +24,6 @@ function dataChange(){
 }
 
 districtSelect.addEventListener('change', ()=>{
-        
-    mapFilter.district = document.querySelector('#dictrictMap').value;
-    console.log(mapFilter.district)
-  })
-  let mapFilter = {
-    district: 'noneselected',
-  }
-
-districtSelect.addEventListener('change', ()=>{
 
 myFilter.district = districtSelect.value;
 dataChange()

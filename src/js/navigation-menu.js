@@ -71,3 +71,13 @@ homeButton.forEach(button => {
 })
 
 
+Array.from(document.querySelectorAll('.login')).forEach(item => {
+    item.addEventListener('click', function(){
+        slider.style.display = 'none';
+        mainContent.style.display = 'none';
+        map.style.display = 'none';
+        services.style.display = 'none';
+        document.querySelector('.map-selected-item').style.display = 'none';
+        document.querySelector('.registration').style.display = 'flex';
+    })
+})

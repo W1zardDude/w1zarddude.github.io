@@ -155,6 +155,16 @@ homeButton.forEach(function (button) {
     document.querySelector('.map-selected-item').style.display = 'none';
   });
 });
+Array.from(document.querySelectorAll('.login')).forEach(function (item) {
+  item.addEventListener('click', function () {
+    slider.style.display = 'none';
+    mainContent.style.display = 'none';
+    map.style.display = 'none';
+    services.style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.registration').style.display = 'flex';
+  });
+});
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -181,13 +191,6 @@ function dataChange() {
   buildContent();
 }
 
-districtSelect.addEventListener('change', function () {
-  mapFilter.district = document.querySelector('#dictrictMap').value;
-  console.log(mapFilter.district);
-});
-var mapFilter = {
-  district: 'noneselected'
-};
 districtSelect.addEventListener('change', function () {
   myFilter.district = districtSelect.value;
   dataChange();
@@ -664,16 +667,7 @@ document.body.onload = function () {
     var preloader = document.getElementById('page-preloader');
     preloader.classList.toggle('done');
   }, 1000);
-}; // const menuItems = Array.from(document.querySelectorAll('.navigation__item'));
-// menuItems.forEach(item =>{
-//     item.addEventListener('click', function(){
-//         var preloader = document.getElementById('page-preloader')
-//                 preloader.classList.remove('done');
-//         setTimeout(() => {
-//             preloader.classList.toggle('done');
-//         }, 2000);
-//     } )
-// })
+};
 "use strict";
 "use strict";
 

@@ -6,14 +6,3 @@ document.body.onload = function(){
 }
 
 
-// const menuItems = Array.from(document.querySelectorAll('.navigation__item'));
-
-// menuItems.forEach(item =>{
-//     item.addEventListener('click', function(){
-//         var preloader = document.getElementById('page-preloader')
-//                 preloader.classList.remove('done');
-//         setTimeout(() => {
-//             preloader.classList.toggle('done');
-//         }, 2000);
-//     } )
-// })
