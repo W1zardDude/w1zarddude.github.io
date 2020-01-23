@@ -84,6 +84,7 @@ function initMap() {
     }
   }
 
+  createMarkers();
   var info = new google.maps.InfoWindow({
     content: '<h3>This is that</h3>'
   });
@@ -120,6 +121,7 @@ servicesButton.forEach(function (button) {
     map.style.display = 'none';
     services.style.display = 'flex';
     document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.registration').style.display = 'none';
   });
 });
 buyButton.forEach(function (button) {
@@ -133,6 +135,7 @@ buyButton.forEach(function (button) {
     filter.style.display = 'flex';
     blockContent.style.display = 'flex';
     document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.registration').style.display = 'none';
   });
 });
 buttonMap.forEach(function (button) {
@@ -143,6 +146,7 @@ buttonMap.forEach(function (button) {
     map.style.display = 'block';
     services.style.display = 'none';
     document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.registration').style.display = 'none';
   });
 });
 homeButton.forEach(function (button) {
@@ -153,6 +157,7 @@ homeButton.forEach(function (button) {
     map.style.display = 'none';
     services.style.display = 'none';
     document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.registration').style.display = 'none';
   });
 });
 Array.from(document.querySelectorAll('.login')).forEach(function (item) {

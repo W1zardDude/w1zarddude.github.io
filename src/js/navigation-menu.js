@@ -30,6 +30,8 @@ servicesButton.forEach(button =>{
         map.style.display = 'none';
         services.style.display = 'flex';
         document.querySelector('.map-selected-item').style.display = 'none';
+        document.querySelector('.registration').style.display = 'none';
+
     })
 })
 
@@ -45,6 +47,8 @@ buyButton.forEach(button =>{
         filter.style.display = 'flex';
         blockContent.style.display = 'flex';
         document.querySelector('.map-selected-item').style.display = 'none';
+        document.querySelector('.registration').style.display = 'none';
+
     })
 })
 
@@ -56,6 +60,8 @@ buttonMap.forEach(button =>{
         map.style.display = 'block';
         services.style.display = 'none';
         document.querySelector('.map-selected-item').style.display = 'none';
+        document.querySelector('.registration').style.display = 'none';
+
     })
 })
 homeButton.forEach(button => {
@@ -66,6 +72,8 @@ homeButton.forEach(button => {
         map.style.display = 'none';
         services.style.display = 'none';
         document.querySelector('.map-selected-item').style.display = 'none';
+        document.querySelector('.registration').style.display = 'none';
+
     })
     
 })
