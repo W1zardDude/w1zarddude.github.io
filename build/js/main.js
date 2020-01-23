@@ -102,12 +102,8 @@ var header = document.getElementById('header'),
     contentSelectedItem = document.querySelector('.content__selected-item'),
     filter = document.querySelector('.filter'),
     blockContent = document.querySelector('.content'),
-    buttonMap = Array.from(document.querySelectorAll('.openMap')),
-    map = document.getElementById('map'),
-    homeButton = Array.from(document.querySelectorAll('.home')),
-    buyButton = Array.from(document.querySelectorAll('.buy-catalog')),
-    servicesButton = Array.from(document.querySelectorAll(".services")),
-    navItem = Array.from(document.querySelectorAll('.navigation__item'));
+    map = document.getElementById('map'); //   slider = document.querySelector('.slider');
+
 var toggleMobileMenu = document.querySelector('#toggle'),
     mobLink = Array.from(document.querySelectorAll('.mobile-menu-link'));
 mobLink.forEach(function (link) {
@@ -115,63 +111,58 @@ mobLink.forEach(function (link) {
     toggle.checked = false;
   });
 });
-servicesButton.forEach(function (button) {
-  button.addEventListener('click', function () {
-    header.style.display = 'flex';
-    slider.style.display = 'none';
-    mainContent.style.display = 'none';
-    map.style.display = 'none';
-    services.style.display = 'flex';
-    document.querySelector('.map-selected-item').style.display = 'none';
-    document.querySelector('.registration').style.display = 'none';
-  });
-});
-buyButton.forEach(function (button) {
-  button.addEventListener('click', function () {
-    header.style.display = 'flex';
-    slider.style.display = 'none';
-    mainContent.style.display = 'flex';
-    map.style.display = 'none';
-    services.style.display = 'none';
-    contentSelectedItem.style.display = 'none';
-    filter.style.display = 'flex';
-    blockContent.style.display = 'flex';
-    document.querySelector('.map-selected-item').style.display = 'none';
-    document.querySelector('.registration').style.display = 'none';
-  });
-});
-buttonMap.forEach(function (button) {
-  button.addEventListener('click', function () {
-    header.style.display = 'flex';
-    slider.style.display = 'none';
-    mainContent.style.display = 'none';
-    map.style.display = 'block';
-    services.style.display = 'none';
-    document.querySelector('.map-selected-item').style.display = 'none';
-    document.querySelector('.registration').style.display = 'none';
-  });
-});
-homeButton.forEach(function (button) {
-  button.addEventListener('click', function () {
-    header.style.display = 'flex';
-    slider.style.display = 'block';
-    mainContent.style.display = 'none';
-    map.style.display = 'none';
-    services.style.display = 'none';
-    document.querySelector('.map-selected-item').style.display = 'none';
-    document.querySelector('.registration').style.display = 'none';
-  });
-});
-Array.from(document.querySelectorAll('.login')).forEach(function (item) {
-  item.addEventListener('click', function () {
-    slider.style.display = 'none';
-    mainContent.style.display = 'none';
-    map.style.display = 'none';
-    services.style.display = 'none';
-    document.querySelector('.map-selected-item').style.display = 'none';
-    document.querySelector('.registration').style.display = 'flex';
-  });
-});
+
+function servicePage() {
+  header.style.display = 'flex';
+  slider.style.display = 'none';
+  mainContent.style.display = 'none';
+  map.style.display = 'none';
+  services.style.display = 'flex';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'none';
+}
+
+function buyPage() {
+  header.style.display = 'flex';
+  slider.style.display = 'none';
+  mainContent.style.display = 'flex';
+  map.style.display = 'none';
+  services.style.display = 'none';
+  contentSelectedItem.style.display = 'none';
+  filter.style.display = 'flex';
+  blockContent.style.display = 'flex';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'none';
+}
+
+function mapPage() {
+  header.style.display = 'flex';
+  slider.style.display = 'none';
+  mainContent.style.display = 'none';
+  map.style.display = 'block';
+  services.style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'none';
+}
+
+function homePage() {
+  header.style.display = 'flex';
+  slider.style.display = 'block';
+  mainContent.style.display = 'none';
+  map.style.display = 'none';
+  services.style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'none';
+}
+
+function loginPage() {
+  slider.style.display = 'none';
+  mainContent.style.display = 'none';
+  map.style.display = 'none';
+  services.style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'flex';
+}
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -677,18 +668,17 @@ document.body.onload = function () {
 };
 "use strict";
 
-var loginButton = Array.from(document.querySelectorAll('.login'));
-
-function dataForAuthUser() {
-  localStorage.setItem('logedUserInfo', JSON.stringify(logedUserInfo));
-  var auth = JSON.parse(localStorage.getItem('logedUserInfo')).authorization;
-  console.log(auth);
-}
-
+// USERS data base
 var users = [{
   login: 'Tugai',
   password: 'Kostya'
-}];
+}]; // USER INFO
+
+var logedUserInfo = {
+  login: 'User',
+  authorization: false
+}; // localStorage.setItem('logedUserInfo', JSON.stringify(logedUserInfo));
+// REGISTRATION 
 
 function registerNewUser() {
   var regLogin = document.querySelector('#regLogin').value;
@@ -711,17 +701,19 @@ function registerNewUser() {
   }
 
   console.log(users);
-}
+} // data base of USERS
+
 
 function bdUsers() {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
-bdUsers();
+bdUsers(); // GET data base 'USERS'
 
 function getBDusers() {
   return JSON.parse(localStorage.getItem('users'));
-}
+} // LOGIN
+
 
 function logInSystem() {
   var login = document.querySelector('#login').value;
@@ -763,26 +755,48 @@ function logInSystem() {
   } else {
     console.log('Fields are empty');
   }
-}
+} // AUTHORIZATION USER
 
-var logedUserInfo = {
-  login: 'User',
-  authorization: false
-};
 
 function authorizationUser() {
+  localStorage.setItem("logedUserInfo", JSON.stringify(logedUserInfo));
+  var auth = JSON.parse(localStorage.getItem('logedUserInfo')).authorization;
+  var login = JSON.parse(localStorage.getItem('logedUserInfo')).login;
   var preloader = document.getElementById('page-preloader');
   preloader.classList.toggle('done');
-  dataForAuthUser();
   setTimeout(function () {
+    dataForAuthUser(login, auth);
     var preloader = document.getElementById('page-preloader');
     preloader.classList.toggle('done');
   }, 3000);
+} // DATA FOR USER WHICH was loged in
+
+
+function dataForAuthUser(login, auth) {
+  Array.from(document.querySelectorAll('.login')).forEach(function (item) {
+    item.style.display = 'none';
+  });
+  homePage();
+  Array.from(document.querySelectorAll('.user')).forEach(function (item) {
+    item.innerHTML = "Hello, ".concat(login);
+    item.style.display = 'flex';
+  });
+  console.log(login);
 }
+
+window.addEventListener('load', function () {
+  var auth = JSON.parse(localStorage.getItem('logedUserInfo')).authorization;
+  var login = JSON.parse(localStorage.getItem('logedUserInfo')).login;
+
+  if (auth === true) {
+    dataForAuthUser(login, auth);
+  } else console.log('authorization onload:', false);
+});
 "use strict";
 
-function createElementSlider() {
-  var slider = document.createElement('div');
+var slider = document.createElement('div');
+
+function createSlider() {
   slider.classList.add('slider');
   slider.id = 'slider';
   var aNext = document.createElement('a');
@@ -861,11 +875,4 @@ function createElementSlider() {
   }
 }
 
-window.addEventListener('load', function () {
-  switch (new URL(location).pathname) {
-    case '/slider':
-      break;
-  }
-
-  createElementSlider();
-});
+createSlider();

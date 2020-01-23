@@ -29,18 +29,26 @@
         <div class="logo">COBALT.</div>
         <nav class="navigation">
             <ul>
-                <li><a class="home navigation__item">Home</a></li>
-                <li><a class="services navigation__item">Services</a></li>
+                <li><a class="home navigation__item" onclick="homePage()">Home</a></li>
+                <li><a class="services navigation__item" onclick="servicePage()">Services</a></li>
                 <li>
                     <a class='catalog' >Catalog <span class="arrow"></span></a>
                     <ul class="dropdown navigation__item">
-                        <li><a class="navigation__item buy-catalog" >Buy</a></li>
-                        <li><a class="navigation__item" >Add advert</a></li>
+                        <li><a class="navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
+                        <li class="li-add-advert" title="need to log in"><a class="navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
-                <li><a class="openMap navigation__item" >Map</a></li>
+                <li><a class="openMap navigation__item" onclick="mapPage()">Map</a></li>
                 <li><a class="navigation__item" >Contacts</a></li>
-                <li><a class="login navigation__item">Sign Up</a></li>
+                <li><a class="login navigation__item" onclick="loginPage()">Sign Up</a></li>
+                <li>
+                    <a class="user navigation__item"></a>
+                    <ul class="dropdown user-dropdown navigation__item">
+                        <li><a class="navigation__item">Settings</a></li>
+                        <li><a class="navigation__item">Favourites</a></li>
+                        <li><a class="navigation__item">Exit</a></li>
+                      </ul>
+                </li>
             </ul>
         </nav>
         <!-- Mobile menu -->
@@ -48,18 +56,27 @@
         <label class="toggle" for="toggle"></label>
         <nav class="mobile-navigation">
             <ul id="mob-menu">
-                <li><a class="home mobile-menu-link navigation__item">Home</a></li>
-                <li><a class="services mobile-menu-link navigation__item" >Services</a></li>
+                <li>
+                    <a class="user navigation__item"></a>
+                    <ul class="dropdown navigation__item">
+                        <li><a class="navigation__item">Settings</a></li>
+                        <li><a class="navigation__item">Favourites</a></li>
+                        <li><a class="navigation__item">Exit</a></li>
+                      </ul>
+                </li>
+                <li><a class="home mobile-menu-link navigation__item" onclick="homePage()">Home</a></li>
+                <li><a class="services mobile-menu-link navigation__item" onclick="servicePage()">Services</a></li>
                 <li>
                     <a>Catalog</a>
                     <ul class="dropdown">
-                        <li><a class="mobile-menu-link navigation__item buy-catalog">Buy</a></li>
-                        <li><a class="mobile-menu-link navigation__item">Add advert</a></li>
+                        <li><a class="mobile-menu-link navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
+                        <li class="li-add-advert" title="need to log in"><a class="mobile-menu-link navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
-                <li><a class="openMap mobile-menu-link navigation__item">Map</a></li>
+                <li><a class="openMap mobile-menu-link navigation__item" onclick="mapPage()">Map</a></li>
                 <li><a class="mobile-menu-link navigation__item">Contacts</a></li>
-                <li><a class="login mobile-menu-link navigation__item">Sign Up</a></li>
+                <li><a class="login mobile-menu-link navigation__item" onclick="loginPage()">Sign Up</a></li>
+                
             </ul>
         </nav>
     </header>

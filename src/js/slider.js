@@ -1,5 +1,6 @@
-function createElementSlider(){
-    const slider = document.createElement('div');
+
+const slider = document.createElement('div');
+function createSlider(){
 slider.classList.add('slider');
 slider.id = 'slider';
 
@@ -92,17 +93,4 @@ var liSlider = document.querySelectorAll('.slide');
     }
 }
 
-window.addEventListener('load',() =>{
-   
-    
-    switch(new URL(location).pathname){
-        case '/slider':
-            
-        break;
-        
-    }
-    createElementSlider();
-
-    
-})
-
+createSlider();
