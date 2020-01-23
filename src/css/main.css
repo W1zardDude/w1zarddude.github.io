@@ -509,13 +509,6 @@ main {
   .map-selected-item .map__pre-order:hover {
     cursor: pointer; }
 
-.wrap {
-  display: none;
-  z-index: 99;
-  position: absolute;
-  top: 95px;
-  left: 250px; }
-
 .registration {
   display: none;
   position: absolute;
@@ -542,7 +535,8 @@ main {
       background-color: #f89d13;
       width: 100%;
       text-align: center;
-      margin: 25px; }
+      margin: 25px;
+      color: #fff; }
     .registration form input {
       margin: 5px;
       width: 200px;
@@ -564,7 +558,7 @@ main {
       border: 3px solid #f89d13;
       font-weight: bold;
       border-radius: 20px;
-      transition: background-color .3s linear, color .3s linear; }
+      transition: background-color .3s linear, color .3s linear; }
     .registration form a:hover {
       background-color: #f89d13;
       color: #fff; }

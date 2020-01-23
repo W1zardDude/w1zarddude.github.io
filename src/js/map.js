@@ -5,12 +5,12 @@ function initMap(){
         center: {lat: 50.451369, lng: 30.465131},
         zoom: 14,
     });
-    document.querySelector('#dictrictMap').addEventListener('change', ()=>{
+    // document.querySelector('#dictrictMap').addEventListener('change', ()=>{
         
-      mapFilter.district = document.querySelector('#dictrictMap').value;
-      filteredContentMap();
-      createMarkers();
-    })
+    //   mapFilter.district = document.querySelector('#dictrictMap').value;
+    //   filteredContentMap();
+    //   createMarkers();
+    // })
     let mapFilter = {
       district: 'noneSelected',
     }
@@ -20,7 +20,7 @@ function initMap(){
       .filter( ([ field, value ]) => value !== 'noneSelected' )
       .every( ([ field, value ]) => item[ field ] === value ));
     }
-    
+    var i;
     function createMarkers(){
       for(let value of filteredContentMap()){
         
@@ -30,21 +30,19 @@ function initMap(){
           title: value.district,
           
         }).addListener('click', function(){
-                
-
                 document.querySelector('.map__img').src = 'img/' + value.img;
                 document.querySelector('.map__district').innerHTML = value.description;
                 document.querySelector('.map__description').innerHTML = value.hoverdDescription;
                 document.querySelector('.map__price').innerHTML = value.price;
-  
-  
                 document.querySelector('.map-selected-item').style.display = 'flex';
-  
         })
+        
+
+        
       }
     }
-    createMarkers();
-  
+
+    createMarkers()
     
       
     

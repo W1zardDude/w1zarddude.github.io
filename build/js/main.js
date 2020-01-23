@@ -16,12 +16,12 @@ function initMap() {
       lng: 30.465131
     },
     zoom: 14
-  });
-  document.querySelector('#dictrictMap').addEventListener('change', function () {
-    mapFilter.district = document.querySelector('#dictrictMap').value;
-    filteredContentMap();
-    createMarkers();
-  });
+  }); // document.querySelector('#dictrictMap').addEventListener('change', ()=>{
+  //   mapFilter.district = document.querySelector('#dictrictMap').value;
+  //   filteredContentMap();
+  //   createMarkers();
+  // })
+
   var mapFilter = {
     district: 'noneSelected'
   };
@@ -43,6 +43,8 @@ function initMap() {
       });
     });
   }
+
+  var i;
 
   function createMarkers() {
     var _iteratorNormalCompletion = true;
@@ -674,6 +676,109 @@ document.body.onload = function () {
   }, 1000);
 };
 "use strict";
+
+var loginButton = Array.from(document.querySelectorAll('.login'));
+
+function dataForAuthUser() {
+  localStorage.setItem('logedUserInfo', JSON.stringify(logedUserInfo));
+  var auth = JSON.parse(localStorage.getItem('logedUserInfo')).authorization;
+  console.log(auth);
+}
+
+var users = [{
+  login: 'Tugai',
+  password: 'Kostya'
+}];
+
+function registerNewUser() {
+  var regLogin = document.querySelector('#regLogin').value;
+  var regPassword = document.querySelector('#regPassword').value;
+  var repRegPassword = document.querySelector('#repRegPassword').value;
+
+  if (regPassword.length > 0 && regLogin.length > 0) {
+    if (regPassword != repRegPassword) {
+      console.log('Error password');
+    } else {
+      console.log('congrat');
+      users.push({
+        login: regLogin,
+        password: regPassword
+      });
+      bdUsers();
+    }
+  } else {
+    console.log('This field is empty');
+  }
+
+  console.log(users);
+}
+
+function bdUsers() {
+  localStorage.setItem('users', JSON.stringify(users));
+}
+
+bdUsers();
+
+function getBDusers() {
+  return JSON.parse(localStorage.getItem('users'));
+}
+
+function logInSystem() {
+  var login = document.querySelector('#login').value;
+  var password = document.querySelector('#password').value;
+
+  if (login.length > 0 && password.length > 0) {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = getBDusers()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var user = _step.value;
+
+        if (user.login == login && user.password == password) {
+          console.log('Authorization...');
+          logedUserInfo.login = login;
+          logedUserInfo.authorization = true;
+          authorizationUser();
+          break;
+        } else {
+          console.log('Error authorization');
+        }
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  } else {
+    console.log('Fields are empty');
+  }
+}
+
+var logedUserInfo = {
+  login: 'User',
+  authorization: false
+};
+
+function authorizationUser() {
+  var preloader = document.getElementById('page-preloader');
+  preloader.classList.toggle('done');
+  dataForAuthUser();
+  setTimeout(function () {
+    var preloader = document.getElementById('page-preloader');
+    preloader.classList.toggle('done');
+  }, 3000);
+}
 "use strict";
 
 function createElementSlider() {
