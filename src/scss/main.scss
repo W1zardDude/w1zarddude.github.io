@@ -716,13 +716,14 @@ main{
         justify-content: center;
         align-items: center;
         box-shadow: 2px 2px 5px 8px rgba(7, 7, 7, 0.336);
+        padding: 20px 0;
         transition: border .2s linear;
         h2{
             background-color: $orange;
             width: 100%;
             text-align: center;
-            position: relative;
-            top:-50px;
+            margin: 25px;
+            
         }
         input{
             margin: 5px;
