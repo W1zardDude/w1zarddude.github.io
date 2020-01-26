@@ -44,9 +44,9 @@
                 <li>
                     <a class="user navigation__item"></a>
                     <ul class="dropdown user-dropdown navigation__item">
-                        <li><a class="navigation__item">Settings</a></li>
+                        <li onclick="userSettings()"><a class="navigation__item">Settings</a></li>
                         <li><a class="navigation__item">Favourites</a></li>
-                        <li><a class="navigation__item">Exit</a></li>
+                        <li onclick="exit()"><a class="navigation__item">Exit</a></li>
                       </ul>
                 </li>
             </ul>
@@ -59,9 +59,9 @@
                 <li>
                     <a class="user navigation__item"></a>
                     <ul class="dropdown navigation__item">
-                        <li><a class="navigation__item">Settings</a></li>
+                        <li onclick="userSettings()"><a class="navigation__item">Settings</a></li>
                         <li><a class="navigation__item">Favourites</a></li>
-                        <li><a class="navigation__item">Exit</a></li>
+                        <li onclick="exit()"><a class="navigation__item">Exit</a></li>
                       </ul>
                 </li>
                 <li><a class="home mobile-menu-link navigation__item" onclick="homePage()">Home</a></li>
@@ -210,7 +210,9 @@
     
 
     
-
+    <div class="text-for-error">
+        <h1 class="text-for-error_h1"></h1>
+    </div>
 
     <!-- <script src="gulpfile.js"></script> -->
     <script src="./build/js/main.js"></script>

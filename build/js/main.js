@@ -162,6 +162,19 @@ function loginPage() {
   services.style.display = 'none';
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'flex';
+} // USER actions
+
+
+function userSettings() {
+  console.log(1);
+}
+
+function exit() {
+  var user = JSON.parse(localStorage.getItem('logedUserInfo'));
+  user.authorization = 'false';
+  user.login = 'none';
+  localStorage.setItem('logedUserInfo', JSON.stringify(user));
+  document.location.reload(true);
 }
 "use strict";
 
@@ -681,26 +694,70 @@ var logedUserInfo = {
 // REGISTRATION 
 
 function registerNewUser() {
-  var regLogin = document.querySelector('#regLogin').value;
-  var regPassword = document.querySelector('#regPassword').value;
-  var repRegPassword = document.querySelector('#repRegPassword').value;
+  var regLogin = document.querySelector('#regLogin');
+  var regPassword = document.querySelector('#regPassword');
+  var repRegPassword = document.querySelector('#repRegPassword');
+  var textError = document.querySelector('.text-for-error');
 
-  if (regPassword.length > 0 && regLogin.length > 0) {
-    if (regPassword != repRegPassword) {
-      console.log('Error password');
-    } else {
-      console.log('congrat');
-      users.push({
-        login: regLogin,
-        password: regPassword
+  if (regPassword.value.length > 0 && regLogin.value.length > 0) {
+    if (regPassword.value == repRegPassword.value) {
+      var n = 0;
+      users.forEach(function (item) {
+        if (item.login == regLogin.value) {
+          n++;
+        }
       });
-      bdUsers();
+
+      if (n == 0) {
+        users.push({
+          login: regLogin.value,
+          password: regPassword.value
+        });
+        document.querySelector('.text-for-error_h1').style.backgroundColor = 'rgba(43, 207, 43, 0.726)';
+        textError.style.opacity = '1';
+        textError.style.visibility = 'visible';
+        document.querySelector('.text-for-error_h1').innerHTML = 'Registration completed successfully';
+        setTimeout(function () {
+          textError.style.opacity = '0';
+          textError.style.visibility = 'hidden';
+        }, 2000);
+        regLogin.value = '';
+        regPassword.value = '';
+        repRegPassword.value = '';
+        regLogin.value = '';
+        regPassword.value = '';
+        repRegPassword.value = '';
+        bdUsers();
+      } else {
+        textError.style.opacity = '1';
+        textError.style.visibility = 'visible';
+        document.querySelector('.text-for-error_h1').innerHTML = 'This login already exists';
+        setTimeout(function () {
+          textError.style.opacity = '0';
+          textError.style.visibility = 'hidden';
+        }, 2000);
+        regLogin.value = '';
+        regPassword.value = '';
+        repRegPassword.value = '';
+      } // for(let user of users){
+      //     if(user.login != regLogin.value){
+      //         console.log(user.login, regLogin.value)
+      //         console.log('congrat');
+      //     continue;
+      //     }
+      //     if(user.login == regLogin.value){
+      //     }
+      //     else{
+      //         break;
+      //     }
+      // }
+
+    } else {
+      console.log('Error password');
     }
   } else {
     console.log('This field is empty');
   }
-
-  console.log(users);
 } // data base of USERS
 
 
@@ -781,6 +838,12 @@ function dataForAuthUser(login, auth) {
     item.innerHTML = "Hello, ".concat(login);
     item.style.display = 'flex';
   });
+  Array.from(document.querySelectorAll('.li-add-advert')).forEach(function (item) {
+    item.classList.toggle('li-add-advert');
+  });
+  Array.from(document.querySelectorAll('.add-advert')).forEach(function (item) {
+    item.classList.toggle('add-advert');
+  });
   console.log(login);
 }
 
@@ -790,7 +853,9 @@ window.addEventListener('load', function () {
 
   if (auth === true) {
     dataForAuthUser(login, auth);
-  } else console.log('authorization onload:', false);
+  } else {
+    console.log('authorization onload:', false);
+  }
 });
 "use strict";
 

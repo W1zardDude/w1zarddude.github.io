@@ -828,3 +828,21 @@ main{
     }
 }
 
+.text-for-error{
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.384);
+
+    h1{
+        font-size: 20px;
+        padding: 20px;
+        background-color: rgba(250, 0, 0, 0.739);
+    }
+}

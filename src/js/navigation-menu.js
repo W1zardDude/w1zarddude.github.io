@@ -71,3 +71,15 @@ function loginPage(){
     document.querySelector('.map-selected-item').style.display = 'none';
     document.querySelector('.registration').style.display = 'flex';
 }
+// USER actions
+function userSettings(){
+    console.log(1)
+}
+
+function exit(){
+    const user = JSON.parse(localStorage.getItem('logedUserInfo'));
+    user.authorization = 'false';
+    user.login = 'none';
+    localStorage.setItem('logedUserInfo', JSON.stringify(user));
+    document.location.reload(true);
+}
