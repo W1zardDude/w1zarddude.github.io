@@ -59,7 +59,9 @@
     height: auto; }
     .map-selected-item .map__img {
       width: 150px;
-      height: 150px; } }
+      height: 150px; }
+  .add-advert-block .add-advert__wrapper {
+    width: 500px; } }
 
 @media screen and (max-width: 760px) {
   main .content__selected-item .content__selected-item__wrapper img {

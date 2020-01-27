@@ -176,6 +176,17 @@ function exit() {
   localStorage.setItem('logedUserInfo', JSON.stringify(user));
   document.location.reload(true);
 }
+
+function addAdvert() {
+  header.style.display = 'flex';
+  slider.style.display = 'none';
+  mainContent.style.display = 'none';
+  map.style.display = 'none';
+  services.style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'flex';
+}
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -729,6 +740,7 @@ function registerNewUser() {
         repRegPassword.value = '';
         bdUsers();
       } else {
+        document.querySelector('.text-for-error_h1').style.backgroundColor = 'rgba(250, 0, 0, 0.739)';
         textError.style.opacity = '1';
         textError.style.visibility = 'visible';
         document.querySelector('.text-for-error_h1').innerHTML = 'This login already exists';

@@ -23,10 +23,10 @@ function registerNewUser(){
                 if(item.login == regLogin.value){
                     n++;
                 }
-            })
+            })    
             if(n==0){
                 users.push({login: regLogin.value, password: regPassword.value});
-                document.querySelector('.text-for-error_h1').style.backgroundColor = 'rgba(43, 207, 43, 0.726)'
+                document.querySelector('.text-for-error_h1').style.backgroundColor = 'rgba(43, 207, 43, 0.726)';
                 textError.style.opacity = '1';
                 textError.style.visibility = 'visible';
                 document.querySelector('.text-for-error_h1').innerHTML = 'Registration completed successfully';
@@ -44,6 +44,7 @@ function registerNewUser(){
                 bdUsers();
             }
             else{
+                document.querySelector('.text-for-error_h1').style.backgroundColor = 'rgba(250, 0, 0, 0.739)';
                 textError.style.opacity = '1';
                 textError.style.visibility = 'visible';
                 document.querySelector('.text-for-error_h1').innerHTML = 'This login already exists';

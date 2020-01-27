@@ -31,17 +31,17 @@
             <ul>
                 <li><a class="home navigation__item" onclick="homePage()">Home</a></li>
                 <li><a class="services navigation__item" onclick="servicePage()">Services</a></li>
-                <li>
+                <li class="catalog-menu">
                     <a class='catalog' >Catalog <span class="arrow"></span></a>
                     <ul class="dropdown navigation__item">
                         <li><a class="navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
-                        <li class="li-add-advert" title="need to log in"><a class="navigation__item add-advert">Add advert</a></li>
+                        <li class="li-add-advert" title="need to log in" onclick="addAdvert()"><a class="navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
                 <li><a class="openMap navigation__item" onclick="mapPage()">Map</a></li>
                 <li><a class="navigation__item" >Contacts</a></li>
                 <li><a class="login navigation__item" onclick="loginPage()">Sign Up</a></li>
-                <li>
+                <li class="profile-menu">
                     <a class="user navigation__item"></a>
                     <ul class="dropdown user-dropdown navigation__item">
                         <li onclick="userSettings()"><a class="navigation__item">Settings</a></li>
@@ -58,7 +58,7 @@
             <ul id="mob-menu">
                 <li>
                     <a class="user navigation__item"></a>
-                    <ul class="dropdown navigation__item">
+                    <ul class="dropdown user-dropdown navigation__item">
                         <li onclick="userSettings()"><a class="navigation__item">Settings</a></li>
                         <li><a class="navigation__item">Favourites</a></li>
                         <li onclick="exit()"><a class="navigation__item">Exit</a></li>
@@ -70,7 +70,7 @@
                     <a>Catalog</a>
                     <ul class="dropdown">
                         <li><a class="mobile-menu-link navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
-                        <li class="li-add-advert" title="need to log in"><a class="mobile-menu-link navigation__item add-advert">Add advert</a></li>
+                        <li class="li-add-advert" title="need to log in" onclick="addAdvert()"><a class="mobile-menu-link navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
                 <li><a class="openMap mobile-menu-link navigation__item" onclick="mapPage()">Map</a></li>
@@ -214,6 +214,37 @@
         <h1 class="text-for-error_h1"></h1>
     </div>
 
+    <div class="add-advert-block">
+        <div class="add-advert__wrapper">
+            <select class="district-advert" name="select-district-advert" id="advert-district">
+                <option value="noneSelected">Select district</option>
+                <option value="svytoshinsky">Svytoshinsky</option>
+                <option value="podolsky">Podolsky</option>
+                <option value="shevchenkovsky">Shevchenkovsky</option>
+                <option value="solomensky">Solomensky</option>
+            </select>
+            <select class="rooms-advert" name="Rooms" id="rooms-advert">
+                <option value="noneSelected">Rooms</option>
+                <option value="1">1 Room</option>
+                <option value="2">2 Rooms</option>
+                <option value="3">3 Rooms</option>
+                <option value="4">4 Rooms</option>
+            </select>
+            <select class="type-of-building-advert" name="type" id="type-of-building-advert">
+                <option value="noneSelected">Type of Building</option>
+                <option value="new">New</option>
+                <option value="old">Old</option>
+            </select>
+            <select class="developer-advert" name="developer" id="developer-advert">
+                <option value="noneSelected">Developer</option>
+                <option value="stolitsa">Stolitsa Group</option>
+                <option value="bud">bUd Development</option>
+                <option value="saga">Saga Development</option>
+            </select>
+            <input type="text" name="price" id="price-advert" placeholder="Enter your price...">
+            <a class="add-advert-button">Add Advert</a>
+        </div>
+    </div>
     <!-- <script src="gulpfile.js"></script> -->
     <script src="./build/js/main.js"></script>
 

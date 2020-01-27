@@ -83,3 +83,14 @@ function exit(){
     localStorage.setItem('logedUserInfo', JSON.stringify(user));
     document.location.reload(true);
 }
+
+function addAdvert(){
+    header.style.display = 'flex';
+    slider.style.display = 'none';
+    mainContent.style.display = 'none';
+    map.style.display = 'none';
+    services.style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.registration').style.display = 'none';
+    document.querySelector('.add-advert-block').style.display = 'flex';
+}

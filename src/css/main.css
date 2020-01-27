@@ -621,7 +621,51 @@ main {
   background-color: rgba(0, 0, 0, 0.384); }
   .text-for-error h1 {
     font-size: 20px;
+    padding: 20px; }
+
+.add-advert-block {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: #e2e2e2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .add-advert-block .add-advert__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 700px;
+    height: 50%;
     padding: 20px;
-    background-color: rgba(250, 0, 0, 0.739); }
+    border: 2px solid #f89d13;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px 8px rgba(7, 7, 7, 0.336); }
+    .add-advert-block .add-advert__wrapper select {
+      font-size: 17px;
+      width: 200px;
+      height: 40px; }
+      .add-advert-block .add-advert__wrapper select:hover {
+        border: 2px solid #f89d13; }
+    .add-advert-block .add-advert__wrapper input {
+      width: 200px;
+      height: 40px;
+      font-size: 17px;
+      padding: 2px; }
+      .add-advert-block .add-advert__wrapper input:hover {
+        border: 2px solid #f89d13; }
+    .add-advert-block .add-advert__wrapper .add-advert-button {
+      width: 100%;
+      padding: 5px;
+      background-color: #fff;
+      text-align: center;
+      color: #f89d13;
+      border: 3px solid #f89d13;
+      font-weight: bold;
+      transition: background-color .3s linear, color .3s linear; }
+      .add-advert-block .add-advert__wrapper .add-advert-button:hover {
+        background-color: #f89d13;
+        color: #fff; }
 
 /*# sourceMappingURL=main.css.map */
