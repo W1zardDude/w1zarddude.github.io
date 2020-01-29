@@ -44,7 +44,7 @@
                 <li class="profile-menu">
                     <a class="user navigation__item"></a>
                     <ul class="dropdown user-dropdown navigation__item">
-                        <li onclick="userSettings()"><a class="navigation__item">Settings</a></li>
+                        <li onclick="settings()"><a class="navigation__item">Settings</a></li>
                         <li><a class="navigation__item">Favourites</a></li>
                         <li onclick="exit()"><a class="navigation__item">Exit</a></li>
                       </ul>
@@ -56,10 +56,10 @@
         <label class="toggle" for="toggle"></label>
         <nav class="mobile-navigation">
             <ul id="mob-menu">
-                <li>
+                <li class="profile-menu">
                     <a class="user navigation__item"></a>
                     <ul class="dropdown user-dropdown navigation__item">
-                        <li onclick="userSettings()"><a class="navigation__item">Settings</a></li>
+                        <li onclick="settings()"><a class="navigation__item">Settings</a></li>
                         <li><a class="navigation__item">Favourites</a></li>
                         <li onclick="exit()"><a class="navigation__item">Exit</a></li>
                       </ul>
@@ -132,6 +132,8 @@
             </ul>
             
         </div>
+
+        <!-- Selected item on MAP -->
         <div class="content__selected-item">
             <div class="content__selected-item__wrapper">
                 <img class="img-selected-item" src="" alt="img">
@@ -143,11 +145,6 @@
                     <div class="buy">Online pre-oder</div>
                 </div>
             </div>
-            <!-- <div id="selected-item-map">
-
-            </div> -->
-            
-            
         </div>
         
     </main>
@@ -178,19 +175,11 @@
 
     </div>
    
-    <!-- <div class="wrap">
-        <select class="districtMap" name="districtMAP" id="dictrictMap">
-            <option value="noneSelected">District</option>
-            <option value="svytoshinsky">Svytoshinsky</option>
-            <option value="podolsky">Podolsky</option>
-            <option value="shevchenkovsky">Shevchenkovsky</option>
-            <option value="solomensky">Solomensky</option>
-        </select>
-    </div> -->
+    <!-- Map -->
     <div id="map">
         
     </div>
-
+    <!-- Registration + Login -->
     <div class="registration">
         <form class="registration__create-acount" action="">
             <h2>Registration</h2>
@@ -209,11 +198,11 @@
     </div>
     
 
-    
+    <!-- Error if login is exist -->
     <div class="text-for-error">
         <h1 class="text-for-error_h1"></h1>
     </div>
-
+    <!-- Add Advert -->
     <div class="add-advert-block">
         <div class="add-advert__wrapper">
             <select class="district-advert" name="select-district-advert" id="advert-district">
@@ -245,7 +234,21 @@
             <a class="add-advert-button">Add Advert</a>
         </div>
     </div>
-    <!-- <script src="gulpfile.js"></script> -->
+
+
+    <!-- Profile Settings -->
+    <div class="settings">
+        <div class="settings-wrap">
+            <h1 class="settings__user-hello"></h1>
+            <input placeholder="Write new Login" type="text" id="change-login">
+            <a class="button-change-login" onclick="changeLogin()">Change</a>
+
+            <input type="text" id="change-password" placeholder="Write new Password">
+            <a class="button-change-password">Change</a>
+        </div>
+
+    </div>
+
     <script src="./build/js/main.js"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBumpmA5_G4Yoh2VIzdpxYNXMA8IoOeKA&callback=initMap" async defer></script>

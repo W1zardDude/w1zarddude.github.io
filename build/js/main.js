@@ -120,6 +120,7 @@ function servicePage() {
   services.style.display = 'flex';
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
+  document.querySelector(".settings").style.display = 'none';
 }
 
 function buyPage() {
@@ -133,6 +134,7 @@ function buyPage() {
   blockContent.style.display = 'flex';
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
+  document.querySelector(".settings").style.display = 'none';
 }
 
 function mapPage() {
@@ -143,6 +145,7 @@ function mapPage() {
   services.style.display = 'none';
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
+  document.querySelector(".settings").style.display = 'none';
 }
 
 function homePage() {
@@ -153,6 +156,7 @@ function homePage() {
   services.style.display = 'none';
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
+  document.querySelector(".settings").style.display = 'none';
 }
 
 function loginPage() {
@@ -162,6 +166,7 @@ function loginPage() {
   services.style.display = 'none';
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'flex';
+  document.querySelector(".settings").style.display = 'none';
 } // USER actions
 
 
@@ -186,6 +191,19 @@ function addAdvert() {
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
   document.querySelector('.add-advert-block').style.display = 'flex';
+  document.querySelector(".settings").style.display = 'none';
+}
+
+function settings() {
+  header.style.display = 'flex';
+  slider.style.display = 'none';
+  mainContent.style.display = 'none';
+  map.style.display = 'none';
+  services.style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'none';
+  document.querySelector(".settings").style.display = 'flex';
 }
 "use strict";
 
@@ -845,6 +863,9 @@ function dataForAuthUser(login, auth) {
   Array.from(document.querySelectorAll('.login')).forEach(function (item) {
     item.style.display = 'none';
   });
+  Array.from(document.querySelectorAll('.profile-menu')).forEach(function (item) {
+    item.style.display = 'flex';
+  });
   homePage();
   Array.from(document.querySelectorAll('.user')).forEach(function (item) {
     item.innerHTML = "Hello, ".concat(login);
@@ -856,6 +877,7 @@ function dataForAuthUser(login, auth) {
   Array.from(document.querySelectorAll('.add-advert')).forEach(function (item) {
     item.classList.toggle('add-advert');
   });
+  document.querySelector('.settings__user-hello').innerHTML = "Hello, ".concat(login);
   console.log(login);
 }
 
@@ -866,9 +888,30 @@ window.addEventListener('load', function () {
   if (auth === true) {
     dataForAuthUser(login, auth);
   } else {
+    Array.from(document.querySelectorAll('.profile-menu')).forEach(function (item) {
+      item.style.display = 'none';
+    });
     console.log('authorization onload:', false);
   }
 });
+"use strict";
+
+function changeLogin() {
+  var user = JSON.parse(localStorage.getItem('logedUserInfo'));
+  var newLogin = document.querySelector('#change-login').value;
+  user.login = newLogin;
+  newLogin.value = '';
+  var preloader = document.getElementById('page-preloader');
+  preloader.classList.toggle('done');
+  localStorage.setItem('logedUserInfo', JSON.stringify(user));
+  setTimeout(function () {
+    dataForAuthUser(newLogin);
+    var preloader = document.getElementById('page-preloader');
+    preloader.classList.toggle('done');
+  }, 3000);
+}
+
+function changePassword() {}
 "use strict";
 
 var slider = document.createElement('div');

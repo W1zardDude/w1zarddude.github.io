@@ -142,6 +142,9 @@ function dataForAuthUser(login, auth){
     Array.from(document.querySelectorAll('.login')).forEach(item=>{
         item.style.display = 'none';
     });
+    Array.from(document.querySelectorAll('.profile-menu')).forEach(item=>{
+        item.style.display = 'flex';
+    })
     homePage();
     Array.from(document.querySelectorAll('.user')).forEach(item=>{
         item.innerHTML = `Hello, ${login}`;
@@ -153,6 +156,7 @@ function dataForAuthUser(login, auth){
     Array.from(document.querySelectorAll('.add-advert')).forEach(item => {
         item.classList.toggle('add-advert');
     })
+    document.querySelector('.settings__user-hello').innerHTML = `Hello, ${login}`;
     console.log(login)
 
 }
@@ -165,7 +169,9 @@ window.addEventListener('load', function(){
         dataForAuthUser(login, auth);
     }
     else{
-
+        Array.from(document.querySelectorAll('.profile-menu')).forEach(item=>{
+            item.style.display = 'none';
+        })
         console.log('authorization onload:',false );
     } 
 })

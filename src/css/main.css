@@ -645,7 +645,8 @@ main {
     .add-advert-block .add-advert__wrapper select {
       font-size: 17px;
       width: 200px;
-      height: 40px; }
+      height: 40px;
+      border: 2px solid transparent; }
       .add-advert-block .add-advert__wrapper select:hover {
         border: 2px solid #f89d13; }
     .add-advert-block .add-advert__wrapper input {
@@ -667,5 +668,28 @@ main {
       .add-advert-block .add-advert__wrapper .add-advert-button:hover {
         background-color: #f89d13;
         color: #fff; }
+
+.settings {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center; }
+  .settings .settings-wrap {
+    display: flex;
+    flex-direction: column; }
+    .settings .settings-wrap input {
+      width: 300px;
+      height: 40px;
+      border: 2px solid black;
+      font-size: 20px; }
+      .settings .settings-wrap input:hover {
+        border-color: #f89d13; }
+    .settings .settings-wrap a {
+      margin-top: 6px;
+      width: 100%;
+      padding: 10px 0;
+      border: 1px solid #000;
+      text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
