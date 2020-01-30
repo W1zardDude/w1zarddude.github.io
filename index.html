@@ -40,7 +40,7 @@
                 </li>
                 <li><a class="openMap navigation__item" onclick="mapPage()">Map</a></li>
                 <li><a class="navigation__item" >Contacts</a></li>
-                <li><a class="login navigation__item" onclick="loginPage()">Sign Up</a></li>
+                <li style="display: none;"><a class="login navigation__item" onclick="loginPage()">Sign Up</a></li>
                 <li class="profile-menu">
                     <a class="user navigation__item"></a>
                     <ul class="dropdown user-dropdown navigation__item">
@@ -56,7 +56,7 @@
         <label class="toggle" for="toggle"></label>
         <nav class="mobile-navigation">
             <ul id="mob-menu">
-                <li class="profile-menu">
+                <li class="profile-menu" style="display: none;">
                     <a class="user navigation__item"></a>
                     <ul class="dropdown user-dropdown navigation__item">
                         <li onclick="settings()"><a class="navigation__item">Settings</a></li>
@@ -75,7 +75,7 @@
                 </li>
                 <li><a class="openMap mobile-menu-link navigation__item" onclick="mapPage()">Map</a></li>
                 <li><a class="mobile-menu-link navigation__item">Contacts</a></li>
-                <li><a class="login mobile-menu-link navigation__item" onclick="loginPage()">Sign Up</a></li>
+                <li style="display: none;"><a class="login mobile-menu-link navigation__item" onclick="loginPage()">Sign Up</a></li>
                 
             </ul>
         </nav>
