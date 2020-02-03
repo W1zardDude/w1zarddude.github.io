@@ -152,6 +152,7 @@ function dataForAuthUser(login, auth){
     })
     Array.from(document.querySelectorAll('.li-add-advert')).forEach(item => {
         item.classList.toggle('li-add-advert');
+        item.title = '';
     })
     Array.from(document.querySelectorAll('.add-advert')).forEach(item => {
         item.classList.toggle('add-advert');

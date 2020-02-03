@@ -33,17 +33,17 @@
                 <li><a class="services navigation__item" onclick="servicePage()">Services</a></li>
                 <li class="catalog-menu">
                     <a class='catalog' >Catalog <span class="arrow"></span></a>
-                    <ul class="dropdown navigation__item">
+                    <ul class="dropdown">
                         <li><a class="navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
                         <li class="li-add-advert" title="need to log in" onclick="addAdvert()"><a class="navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
                 <li><a class="openMap navigation__item" onclick="mapPage()">Map</a></li>
                 <li><a class="navigation__item" >Contacts</a></li>
-                <li style="display: none;"><a class="login navigation__item" onclick="loginPage()">Sign Up</a></li>
+                <li class="login"><a class=" navigation__item" onclick="loginPage()">Sign Up</a></li>
                 <li class="profile-menu">
                     <a class="user navigation__item"></a>
-                    <ul class="dropdown user-dropdown navigation__item">
+                    <ul class="user-dropdown">
                         <li onclick="settings()"><a class="navigation__item">Settings</a></li>
                         <li><a class="navigation__item">Favourites</a></li>
                         <li onclick="exit()"><a class="navigation__item">Exit</a></li>
@@ -55,27 +55,27 @@
         <input type="checkbox" name="toggle" id="toggle">
         <label class="toggle" for="toggle"></label>
         <nav class="mobile-navigation">
-            <ul id="mob-menu">
-                <li class="profile-menu" style="display: none;">
-                    <a class="user navigation__item"></a>
-                    <ul class="dropdown user-dropdown navigation__item">
+            <ul class="mobile-navigation__ul">
+                <li class="profile-menu nav-li">
+                    <a class="user"></a>
+                    <ul class="user-dropdown">
                         <li onclick="settings()"><a class="navigation__item">Settings</a></li>
                         <li><a class="navigation__item">Favourites</a></li>
                         <li onclick="exit()"><a class="navigation__item">Exit</a></li>
                       </ul>
                 </li>
-                <li><a class="home mobile-menu-link navigation__item" onclick="homePage()">Home</a></li>
-                <li><a class="services mobile-menu-link navigation__item" onclick="servicePage()">Services</a></li>
-                <li>
+                <li class="nav-li"><a class="home mobile-menu-link navigation__item" onclick="homePage()">Home</a></li>
+                <li class="nav-li"><a class="services mobile-menu-link navigation__item" onclick="servicePage()">Services</a></li>
+                <li class="catalog-menu nav-li">
                     <a>Catalog</a>
                     <ul class="dropdown">
                         <li><a class="mobile-menu-link navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
                         <li class="li-add-advert" title="need to log in" onclick="addAdvert()"><a class="mobile-menu-link navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
-                <li><a class="openMap mobile-menu-link navigation__item" onclick="mapPage()">Map</a></li>
-                <li><a class="mobile-menu-link navigation__item">Contacts</a></li>
-                <li style="display: none;"><a class="login mobile-menu-link navigation__item" onclick="loginPage()">Sign Up</a></li>
+                <li class="nav-li"><a class="openMap mobile-menu-link navigation__item" onclick="mapPage()">Map</a></li>
+                <li class="nav-li"><a class="mobile-menu-link navigation__item">Contacts</a></li>
+                <li class="nav-li login"><a class="mobile-menu-link navigation__item" onclick="loginPage()">Sign Up</a></li>
                 
             </ul>
         </nav>
