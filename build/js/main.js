@@ -1,4 +1,62 @@
 "use strict";
+
+function getAdvertDistrict() {
+  return document.querySelector('.district-advert').value;
+}
+
+function getAdvertRooms() {
+  return document.querySelector('.rooms-advert').value;
+}
+
+function getAdvertType() {
+  return document.querySelector('.type-of-building-advert').value;
+}
+
+function getAdvertDeveloper() {
+  return document.querySelector('.developer-advert').value;
+}
+
+function getAdvertPrice() {
+  return document.querySelector('.price-advert').value;
+}
+
+function addNewAdvert() {
+  var newItem = {
+    district: getAdvertDistrict(),
+    rooms: getAdvertRooms(),
+    type: getAdvertType(),
+    img: "jkFjord.jpg",
+    developer: getAdvertDeveloper(),
+    price: getAdvertPrice(),
+    position: {
+      lat: 50.438590,
+      lng: 30.410427
+    }
+  };
+  var i = 0;
+
+  for (var key in newItem) {
+    if (newItem[key] === "noneSelected" || newItem[key] === '') {
+      i++;
+    }
+  }
+
+  if (i > 0) {
+    alert('Select and complete all fields!');
+  } else {
+    content.push(newItem);
+    userItems.push(newItem);
+    filterItems();
+    state.data = filterItems();
+    document.querySelector('.district-advert').value = 'noneSelected';
+    document.querySelector('.rooms-advert').value = 'noneSelected';
+    document.querySelector('.type-of-building-advert').value = 'noneSelected';
+    document.querySelector('.developer-advert').value = 'noneSelected';
+    document.querySelector('.price-advert').value = '';
+    alert('Item was added succsesfully :)');
+  }
+}
+"use strict";
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -268,9 +326,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '50.000',
   position: {
     lat: 50.449101,
     lng: 30.490206
@@ -281,9 +337,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2',
+  price: '30.000',
   position: {
     lat: 50.444286,
     lng: 30.497251
@@ -294,9 +348,7 @@ var contentLocalStorage = [{
   type: 'old',
   developer: 'saga',
   img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '74.999',
   position: {
     lat: 50.445267,
     lng: 30.489825
@@ -307,9 +359,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '50.000',
   position: {
     lat: 50.449283,
     lng: 30.480347
@@ -320,9 +370,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '20.000',
   position: {
     lat: 50.450565,
     lng: 30.467127
@@ -333,9 +381,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '50.000',
   position: {
     lat: 50.451821,
     lng: 30.467457
@@ -346,9 +392,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '30.000',
   position: {
     lat: 50.448713,
     lng: 30.467682
@@ -359,9 +403,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '80.000',
   position: {
     lat: 50.453729,
     lng: 30.470321
@@ -372,9 +414,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkFjord.jpg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '50.000',
   position: {
     lat: 50.447367,
     lng: 30.465272
@@ -385,9 +425,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkOtrada.jpg",
-  price: '30.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 2',
+  price: '30.00$',
   position: {
     lat: 50.447759,
     lng: 30.452735
@@ -398,9 +436,7 @@ var contentLocalStorage = [{
   type: 'old',
   developer: 'saga',
   img: "jkDelrey.png",
-  price: '74.999$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '74.999',
   position: {
     lat: 50.444136,
     lng: 30.453257
@@ -411,9 +447,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkRad.jpeg",
-  price: '50.000$',
-  description: "Solomensky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '50.000',
   position: {
     lat: 50.441045,
     lng: 30.427164
@@ -424,9 +458,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkSalut.jpg",
-  price: '20.000$',
-  description: "Podolsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '20.000',
   position: {
     lat: 50.439163,
     lng: 30.420604
@@ -437,9 +469,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkZarichnii.jpeg",
-  price: '50.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '50.000',
   position: {
     lat: 50.441312,
     lng: 30.417959
@@ -450,9 +480,7 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "jkCreatorCity.png",
-  price: '30.000$',
-  description: "Shevchenkovsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '30.000',
   position: {
     lat: 50.438972,
     lng: 30.413018
@@ -463,110 +491,12 @@ var contentLocalStorage = [{
   type: 'new',
   developer: 'bud',
   img: "img_6.jpg",
-  price: '80.000$',
-  description: "Svytoshinsky district",
-  hoverdDescription: 'Rooms: 1',
+  price: '80.000',
   position: {
     lat: 50.438511,
     lng: 30.410427
   }
-} // {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkFjord.jpg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'podolsky', rooms: '2', type: 'new', developer: 'bud', img: "jkOtrada.jpg", price: '30.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 2'},
-// {district: 'shevchenkovsky', rooms: '1', type: 'old', developer: 'saga', img: "jkDelrey.png", price: '74.999$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},
-// {district: 'solomensky', rooms: '1', type: 'new', developer: 'bud', img: "jkRad.jpeg", price: '50.000$', description: "Solomensky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'podolsky', rooms: '3', type: 'new', developer: 'bud', img: "jkSalut.jpg", price: '20.000$', description: "Podolsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "jkZarichnii.jpeg", price: '50.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'shevchenkovsky', rooms: '1', type: 'new', developer: 'bud', img: "jkCreatorCity.png", price: '30.000$', description: "Shevchenkovsky district", hoverdDescription: 'Rooms: 1'},   
-// {district: 'svytoshinsky', rooms: '1', type: 'new', developer: 'bud', img: "img_6.jpg", price: '80.000$', description: "Svytoshinsky district", hoverdDescription: 'Rooms: 1'},   
-]; // LocalStorage 'content'
+}]; // LocalStorage 'content'
 
 localStorage.setItem('content', JSON.stringify(contentLocalStorage));
 var content = JSON.parse(localStorage.getItem('content'));
@@ -651,6 +581,7 @@ function pageButtons(pages) {
 }
 
 function buildContent() {
+  contentWrapper.innerHTML = '';
   var dataBuild = createPagination(state.data, state.page, state.items);
   var myList = dataBuild.data;
 
@@ -663,17 +594,17 @@ function buildContent() {
         hoverDescription = document.createElement('div');
     var imgSrcT = myList[i].img,
         priceT = myList[i].price,
-        descriptionT = myList[i].description,
-        hoverDescriptionT = myList[i].hoverdDescription;
+        descriptionT = myList[i].district,
+        hoverDescriptionT = myList[i].rooms;
     contentItem.classList.add('content__item');
     itemImg.src = "../../img/" + imgSrcT;
     contentItemText.classList.add('content__item__text');
     contentItem.appendChild(itemImg);
     priceText.classList.add('price');
-    priceText.innerHTML = priceT;
-    district.innerHTML = descriptionT;
+    priceText.innerHTML = "".concat(priceT, "$");
+    district.innerHTML = "".concat(descriptionT, " district");
     hoverDescription.classList.add('hover-description');
-    hoverDescription.innerHTML = hoverDescriptionT;
+    hoverDescription.innerHTML = "Rooms: ".concat(hoverDescriptionT);
     contentItemText.appendChild(priceText);
     contentItemText.appendChild(district);
     contentItemText.appendChild(hoverDescription);
@@ -722,7 +653,8 @@ var users = [{
 
 var logedUserInfo = {
   login: 'User',
-  authorization: false
+  authorization: false,
+  password: 'Password'
 }; // localStorage.setItem('logedUserInfo', JSON.stringify(logedUserInfo));
 // REGISTRATION 
 
@@ -823,6 +755,7 @@ function logInSystem() {
           console.log('Authorization...');
           logedUserInfo.login = login;
           logedUserInfo.authorization = true;
+          logedUserInfo.password = password;
           authorizationUser();
           break;
         } else {
@@ -868,12 +801,12 @@ function dataForAuthUser(login, auth) {
     item.style.display = 'none';
   });
   Array.from(document.querySelectorAll('.profile-menu-mobile')).forEach(function (item) {
-    item.style.display = 'flex';
+    item.style.display = 'block';
   });
   homePage();
   Array.from(document.querySelectorAll('.user')).forEach(function (item) {
     item.innerHTML = "Hello, ".concat(login);
-    item.style.display = 'flex';
+    item.style.display = 'block';
   });
   Array.from(document.querySelectorAll('.li-add-advert')).forEach(function (item) {
     item.classList.toggle('li-add-advert');
@@ -881,6 +814,7 @@ function dataForAuthUser(login, auth) {
   });
   Array.from(document.querySelectorAll('.add-advert')).forEach(function (item) {
     item.classList.toggle('add-advert');
+    item.addEventListener('click', addAdvert);
   });
   document.querySelector('.settings__user-hello').innerHTML = "Hello, ".concat(login);
   console.log(login);
@@ -902,21 +836,50 @@ window.addEventListener('load', function () {
 "use strict";
 
 function changeLogin() {
+  var users = JSON.parse(localStorage.getItem('users'));
   var user = JSON.parse(localStorage.getItem('logedUserInfo'));
   var newLogin = document.querySelector('#change-login').value;
-  user.login = newLogin;
-  newLogin.value = '';
-  var preloader = document.getElementById('page-preloader');
-  preloader.classList.toggle('done');
-  localStorage.setItem('logedUserInfo', JSON.stringify(user));
-  setTimeout(function () {
-    dataForAuthUser(newLogin);
+
+  if (newLogin.length > 0) {
+    //     for(let i = 0; i < users.length; i++){
+    //         if(users[i].login != newLogin){
+    //             if(users[i].login = user.login){
+    //                 users[i].login = newLogin;
+    user.login = newLogin;
     var preloader = document.getElementById('page-preloader');
     preloader.classList.toggle('done');
-  }, 3000);
+    localStorage.setItem('logedUserInfo', JSON.stringify(user));
+    setTimeout(function () {
+      dataForAuthUser(user.login);
+      var preloader = document.getElementById('page-preloader');
+      preloader.classList.toggle('done');
+    }, 3000); //             }
+    //         }
+    //     }
+  }
 }
 
-function changePassword() {}
+function changePassword() {
+  var users = JSON.parse(localStorage.getItem('users'));
+  var user = JSON.parse(localStorage.getItem('logedUserInfo'));
+  var newPassword = document.querySelector('#change-password').value;
+
+  if (newPassword.length > 0) {
+    // for(let i = 0; i < users.length; i++){
+    //     if(users[i].login = user.login){
+    //         users[i].password = newPassword;
+    user.password = newPassword;
+    var preloader = document.getElementById('page-preloader');
+    preloader.classList.toggle('done');
+    localStorage.setItem('logedUserInfo', JSON.stringify(user));
+    setTimeout(function () {
+      dataForAuthUser(user.login, user.authorization, user.password);
+      var preloader = document.getElementById('page-preloader');
+      preloader.classList.toggle('done');
+    }, 3000); //     }
+    // }
+  }
+}
 "use strict";
 
 var slider = document.createElement('div');
@@ -1001,3 +964,6 @@ function createSlider() {
 }
 
 createSlider();
+"use strict";
+
+var userItems = [];

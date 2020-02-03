@@ -20,6 +20,11 @@
       font-size: 18px; }
     main .content__selected-item .content__selected-item__wrapper .info .info__district {
       font-size: 18px; }
+  .registration {
+    height: auto;
+    flex-direction: column; }
+    .registration form:first-child {
+      margin-top: 100px; }
   #services {
     display: none;
     justify-content: center;
@@ -53,7 +58,8 @@
       width: 150px;
       height: 150px; }
   .add-advert-block .add-advert__wrapper {
-    width: 500px; } }
+    align-items: center;
+    height: 500px; } }
 
 @media screen and (max-width: 760px) {
   main .content__selected-item .content__selected-item__wrapper img {
@@ -87,6 +93,11 @@
         left: 95%; }
   main .content .content__wrapper .content__item {
     width: 99vw;
-    height: 99vw; } }
+    height: 99vw; }
+  .registration form {
+    width: 90vw;
+    height: auto; }
+    .registration form input {
+      width: 65%; } }
 
 /*# sourceMappingURL=media.css.map */

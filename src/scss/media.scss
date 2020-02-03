@@ -42,8 +42,10 @@
         }
     }
     .registration{
-        form{
-            
+        height: auto;
+        flex-direction: column;
+        form:first-child{
+            margin-top: 100px;
         }
     }
     
@@ -108,7 +110,10 @@
     }
     .add-advert-block{
         .add-advert__wrapper{
-            width: 500px;
+
+            align-items: center;
+            height: 500px;
+            
         }
     }
 }
@@ -180,7 +185,11 @@
     }
     .registration{
         form{
-
+            width: 90vw;
+            height: auto;
+            input{
+                width: 65%;
+            }
         }
     }
 }

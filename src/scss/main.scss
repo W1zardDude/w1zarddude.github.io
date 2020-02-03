@@ -263,9 +263,25 @@ header{
             .profile-menu-mobile{
                 .user-dropdown{
                     display: none;
+                    position: relative;
                     visibility: hidden;
                     opacity: 0;
+                    padding: 10px;
+                    border-top: 2px solid #fff;
+                    background-color: $orange;
+                    margin-top: 10px;
+                    li{
+                        padding: 7px;
+                        background-color: #fff;
+                        margin: 10px;
+                    }
                 }
+                
+                   &:hover .user-dropdown{
+                       display: block;
+                       visibility: visible;
+                       opacity: 1;
+                   }
             }
             .catalog-menu-mobile{
                 .dropdown-catalog{
@@ -839,11 +855,13 @@ main{
     justify-content: center;
     align-items: center;
     .add-advert__wrapper{
+        
+        background-repeat: no-repeat;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-end;
-        width: 700px;
+        width: auto;
         height: 50%;
         padding: 20px;
         border: 2px solid $orange;
@@ -908,8 +926,16 @@ main{
             margin-top: 6px;
             width: 100%;
             padding: 10px 0;
-            border: 1px solid #000;
+            border: 2px solid #000;
             text-align: center;
+            transform: translateX(0);
+            transition: background-color .1s linear;
+            font-size: 12px;
+            font-weight: bold;
+            &:hover{
+                
+                background-color: $orange;
+            }
         }
     }
 }

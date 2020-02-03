@@ -35,7 +35,7 @@
                     <a class='catalog' >Catalog <span class="arrow"></span></a>
                     <ul class="dropdown">
                         <li onclick="buyPage()"><a class="navigation__item buy-catalog" >Buy</a></li>
-                        <li onclick="addAdvert()" class="li-add-advert" title="need to log in" ><a class="navigation__item add-advert">Add advert</a></li>
+                        <li class="li-add-advert" title="need to log in" ><a class="navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
                 <li onclick="mapPage()"><a class="openMap navigation__item" >Map</a></li>
@@ -45,7 +45,7 @@
                     <a class="user navigation__item"></a>
                     <ul class="user-dropdown">
                         <li onclick="settings()"><a class="navigation__item">Settings</a></li>
-                        <li><a class="navigation__item">Favourites</a></li>
+                        <li><a class="navigation__item">Your items</a></li>
                         <li onclick="exit()"><a class="navigation__item">Exit</a></li>
                       </ul>
                 </li>
@@ -59,9 +59,9 @@
                 <li class="profile-menu-mobile nav-li">
                     <a class="user"></a>
                     <ul class="user-dropdown">
-                        <li onclick="settings()"><a class="navigation__item">Settings</a></li>
-                        <li><a class="navigation__item">Favourites</a></li>
-                        <li onclick="exit()"><a class="navigation__item">Exit</a></li>
+                        <li onclick="settings()"><a class="mobile-menu-link navigation__item">Settings</a></li>
+                        <li><a class="mobile-menu-link navigation__item">Your items</a></li>
+                        <li onclick="exit()"><a class="mobile-menu-link navigation__item">Exit</a></li>
                       </ul>
                 </li>
                 <li onclick="homePage()" class="nav-li"><a class="home mobile-menu-link navigation__item" >Home</a></li>
@@ -70,7 +70,7 @@
                     <a>Catalog</a>
                     <ul class="dropdown-catalog">
                         <li ><a class="mobile-menu-link navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
-                        <li class="li-add-advert" title="need to log in" ><a class="mobile-menu-link navigation__item add-advert" onclick="addAdvert()">Add advert</a></li>
+                        <li class="li-add-advert" title="need to log in" ><a class="mobile-menu-link navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
                 <li onclick="mapPage()" class="nav-li"><a class="openMap mobile-menu-link navigation__item" >Map</a></li>
@@ -205,7 +205,7 @@
     <!-- Add Advert -->
     <div class="add-advert-block">
         <div class="add-advert__wrapper">
-            <select class="district-advert" name="select-district-advert" id="advert-district">
+            <select onchange="getAdvertDistrict()" class="district-advert" name="select-district-advert" id="advert-district">
                 <option value="noneSelected">Select district</option>
                 <option value="svytoshinsky">Svytoshinsky</option>
                 <option value="podolsky">Podolsky</option>
@@ -230,8 +230,8 @@
                 <option value="bud">bUd Development</option>
                 <option value="saga">Saga Development</option>
             </select>
-            <input type="text" name="price" id="price-advert" placeholder="Enter your price...">
-            <a class="add-advert-button">Add Advert</a>
+            <input type="text" name="price" class="price-advert" placeholder="Enter your price...">
+            <a onclick="addNewAdvert()" class="add-advert-button">Add Advert</a>
         </div>
     </div>
 
@@ -243,10 +243,15 @@
             <input placeholder="Write new Login" type="text" id="change-login">
             <a class="button-change-login" onclick="changeLogin()">Change</a>
 
-            <input type="text" id="change-password" placeholder="Write new Password">
-            <a class="button-change-password">Change</a>
+            <!-- <input type="text" id="change-password" placeholder="Write new Password">
+            <a class="button-change-password" onclick="changePassword()">Change</a> -->
         </div>
 
+    </div>
+
+    <!-- User Items -->
+    <div class="user-items">
+        
     </div>
 
     <script src="./build/js/main.js"></script>

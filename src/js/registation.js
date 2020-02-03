@@ -6,6 +6,7 @@ let users = [
 let logedUserInfo = {
     login: 'User',
     authorization: false,
+    password: 'Password'
 }
 // localStorage.setItem('logedUserInfo', JSON.stringify(logedUserInfo));
 
@@ -108,6 +109,7 @@ function logInSystem(){
                 console.log('Authorization...');
                 logedUserInfo.login = login;
                 logedUserInfo.authorization = true;
+                logedUserInfo.password = password;
                 authorizationUser();
                 break;
             }
@@ -143,12 +145,12 @@ function dataForAuthUser(login, auth){
         item.style.display = 'none';
     });
     Array.from(document.querySelectorAll('.profile-menu-mobile')).forEach(item=>{
-        item.style.display = 'flex';
+        item.style.display = 'block';
     })
     homePage();
     Array.from(document.querySelectorAll('.user')).forEach(item=>{
         item.innerHTML = `Hello, ${login}`;
-        item.style.display = 'flex';
+        item.style.display = 'block';
     })
     Array.from(document.querySelectorAll('.li-add-advert')).forEach(item => {
         item.classList.toggle('li-add-advert');
@@ -156,10 +158,11 @@ function dataForAuthUser(login, auth){
     })
     Array.from(document.querySelectorAll('.add-advert')).forEach(item => {
         item.classList.toggle('add-advert');
+        item.addEventListener('click', addAdvert);
     })
     document.querySelector('.settings__user-hello').innerHTML = `Hello, ${login}`;
     console.log(login)
-
+    
 }
 
 
