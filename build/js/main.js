@@ -121,6 +121,7 @@ function servicePage() {
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
   document.querySelector(".settings").style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'none';
 }
 
 function buyPage() {
@@ -132,9 +133,9 @@ function buyPage() {
   contentSelectedItem.style.display = 'none';
   filter.style.display = 'flex';
   blockContent.style.display = 'flex';
-  document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
   document.querySelector(".settings").style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'none';
 }
 
 function mapPage() {
@@ -146,6 +147,7 @@ function mapPage() {
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
   document.querySelector(".settings").style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'none';
 }
 
 function homePage() {
@@ -157,6 +159,7 @@ function homePage() {
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'none';
   document.querySelector(".settings").style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'none';
 }
 
 function loginPage() {
@@ -167,6 +170,7 @@ function loginPage() {
   document.querySelector('.map-selected-item').style.display = 'none';
   document.querySelector('.registration').style.display = 'flex';
   document.querySelector(".settings").style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'none';
 } // USER actions
 
 
@@ -863,7 +867,7 @@ function dataForAuthUser(login, auth) {
   Array.from(document.querySelectorAll('.login')).forEach(function (item) {
     item.style.display = 'none';
   });
-  Array.from(document.querySelectorAll('.profile-menu')).forEach(function (item) {
+  Array.from(document.querySelectorAll('.profile-menu-mobile')).forEach(function (item) {
     item.style.display = 'flex';
   });
   homePage();
@@ -889,7 +893,7 @@ window.addEventListener('load', function () {
   if (auth === true) {
     dataForAuthUser(login, auth);
   } else {
-    Array.from(document.querySelectorAll('.profile-menu')).forEach(function (item) {
+    Array.from(document.querySelectorAll('.profile-menu-mobile')).forEach(function (item) {
       item.style.display = 'none';
     });
     console.log('authorization onload:', false);

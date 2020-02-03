@@ -29,18 +29,18 @@
         <div class="logo">COBALT.</div>
         <nav class="navigation">
             <ul>
-                <li><a class="home navigation__item" onclick="homePage()">Home</a></li>
-                <li><a class="services navigation__item" onclick="servicePage()">Services</a></li>
+                <li onclick="homePage()"><a class="home navigation__item" >Home</a></li>
+                <li onclick="servicePage()"><a class="services navigation__item" >Services</a></li>
                 <li class="catalog-menu">
                     <a class='catalog' >Catalog <span class="arrow"></span></a>
                     <ul class="dropdown">
-                        <li><a class="navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
-                        <li class="li-add-advert" title="need to log in" onclick="addAdvert()"><a class="navigation__item add-advert">Add advert</a></li>
+                        <li onclick="buyPage()"><a class="navigation__item buy-catalog" >Buy</a></li>
+                        <li onclick="addAdvert()" class="li-add-advert" title="need to log in" ><a class="navigation__item add-advert">Add advert</a></li>
                       </ul>
                 </li>
-                <li><a class="openMap navigation__item" onclick="mapPage()">Map</a></li>
+                <li onclick="mapPage()"><a class="openMap navigation__item" >Map</a></li>
                 <li><a class="navigation__item" >Contacts</a></li>
-                <li class="login"><a class=" navigation__item" onclick="loginPage()">Sign Up</a></li>
+                <li onclick="loginPage()" class="login"><a class=" navigation__item" >Sign Up</a></li>
                 <li class="profile-menu">
                     <a class="user navigation__item"></a>
                     <ul class="user-dropdown">
@@ -56,7 +56,7 @@
         <label class="toggle" for="toggle"></label>
         <nav class="mobile-navigation">
             <ul class="mobile-navigation__ul">
-                <li class="profile-menu nav-li">
+                <li class="profile-menu-mobile nav-li">
                     <a class="user"></a>
                     <ul class="user-dropdown">
                         <li onclick="settings()"><a class="navigation__item">Settings</a></li>
@@ -64,18 +64,18 @@
                         <li onclick="exit()"><a class="navigation__item">Exit</a></li>
                       </ul>
                 </li>
-                <li class="nav-li"><a class="home mobile-menu-link navigation__item" onclick="homePage()">Home</a></li>
+                <li onclick="homePage()" class="nav-li"><a class="home mobile-menu-link navigation__item" >Home</a></li>
                 <li class="nav-li"><a class="services mobile-menu-link navigation__item" onclick="servicePage()">Services</a></li>
-                <li class="catalog-menu nav-li">
+                <li class="catalog-menu-mobile nav-li">
                     <a>Catalog</a>
-                    <ul class="dropdown">
-                        <li><a class="mobile-menu-link navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
-                        <li class="li-add-advert" title="need to log in" onclick="addAdvert()"><a class="mobile-menu-link navigation__item add-advert">Add advert</a></li>
+                    <ul class="dropdown-catalog">
+                        <li ><a class="mobile-menu-link navigation__item buy-catalog" onclick="buyPage()">Buy</a></li>
+                        <li class="li-add-advert" title="need to log in" ><a class="mobile-menu-link navigation__item add-advert" onclick="addAdvert()">Add advert</a></li>
                       </ul>
                 </li>
-                <li class="nav-li"><a class="openMap mobile-menu-link navigation__item" onclick="mapPage()">Map</a></li>
+                <li onclick="mapPage()" class="nav-li"><a class="openMap mobile-menu-link navigation__item" >Map</a></li>
                 <li class="nav-li"><a class="mobile-menu-link navigation__item">Contacts</a></li>
-                <li class="nav-li login"><a class="mobile-menu-link navigation__item" onclick="loginPage()">Sign Up</a></li>
+                <li onclick="loginPage()" class="nav-li login"><a class="mobile-menu-link navigation__item" >Sign Up</a></li>
                 
             </ul>
         </nav>
