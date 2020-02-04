@@ -31,9 +31,9 @@ function initMap(){
           
         }).addListener('click', function(){
                 document.querySelector('.map__img').src = 'img/' + value.img;
-                document.querySelector('.map__district').innerHTML = value.description;
-                document.querySelector('.map__description').innerHTML = value.hoverdDescription;
-                document.querySelector('.map__price').innerHTML = value.price;
+                document.querySelector('.map__district').innerHTML = `${value.district} district`;
+                document.querySelector('.map__description').innerHTML = `Rooms: ${value.rooms}`;
+                document.querySelector('.map__price').innerHTML = `${value.price}$`;
                 document.querySelector('.map-selected-item').style.display = 'flex';
         })
         

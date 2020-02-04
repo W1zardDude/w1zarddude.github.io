@@ -118,9 +118,9 @@ function initMap() {
           title: value.district
         }).addListener('click', function () {
           document.querySelector('.map__img').src = 'img/' + value.img;
-          document.querySelector('.map__district').innerHTML = value.description;
-          document.querySelector('.map__description').innerHTML = value.hoverdDescription;
-          document.querySelector('.map__price').innerHTML = value.price;
+          document.querySelector('.map__district').innerHTML = "".concat(value.district, " district");
+          document.querySelector('.map__description').innerHTML = "Rooms: ".concat(value.rooms);
+          document.querySelector('.map__price').innerHTML = "".concat(value.price, "$");
           document.querySelector('.map-selected-item').style.display = 'flex';
         });
       };
