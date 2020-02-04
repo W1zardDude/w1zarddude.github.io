@@ -27,6 +27,10 @@ function servicePage(){
     document.querySelector(".settings").style.display = 'none';
     document.querySelector('.add-advert-block').style.display = 'none';
     document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
+    
 
 
 }
@@ -44,6 +48,10 @@ function buyPage(){
     document.querySelector(".settings").style.display = 'none';
     document.querySelector('.add-advert-block').style.display = 'none';
     document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
+
 
 }
 
@@ -58,6 +66,10 @@ function Contacts(){
     document.querySelector(".settings").style.display = 'none';
     document.querySelector('.add-advert-block').style.display = 'none';
     document.querySelector('.contacts-block').style.display = 'block';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
+
 }
 
 function mapPage(){
@@ -71,6 +83,10 @@ function mapPage(){
     document.querySelector(".settings").style.display = 'none';
     document.querySelector('.add-advert-block').style.display = 'none';
     document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
+
 }
 
 function homePage(){
@@ -84,6 +100,10 @@ function homePage(){
     document.querySelector(".settings").style.display = 'none';
     document.querySelector('.add-advert-block').style.display = 'none';
     document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
+
 }
 
 function loginPage(){
@@ -96,12 +116,25 @@ function loginPage(){
     document.querySelector(".settings").style.display = 'none';
     document.querySelector('.add-advert-block').style.display = 'none';
     document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
 
 }
-// USER actions
-function userSettings(){
-    console.log(1)
+function onlinePreoder(){
+    slider.style.display = 'none';
+    mainContent.style.display = 'none';
+    map.style.display = 'none';
+    services.style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.registration').style.display = 'none';
+    document.querySelector(".settings").style.display = 'none';
+    document.querySelector('.add-advert-block').style.display = 'none';
+    document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'flex';
 }
+// USER actions
 
 function exit(){
     const user = JSON.parse(localStorage.getItem('logedUserInfo'));
@@ -122,6 +155,10 @@ function addAdvert(){
     document.querySelector('.add-advert-block').style.display = 'flex';
     document.querySelector(".settings").style.display = 'none';
     document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
+
     
 
 }
@@ -136,5 +173,9 @@ function settings(){
     document.querySelector('.add-advert-block').style.display = 'none';
     document.querySelector(".settings").style.display = 'flex';
     document.querySelector('.contacts-block').style.display = 'none';
+    document.querySelector('.map-selected-item').style.display = 'none';
+    document.querySelector('.online-pre-order').style.display = 'none';
+
+
 }
 

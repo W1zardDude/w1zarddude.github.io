@@ -59,3 +59,6 @@ function initMap(){
       document.querySelector('.map-selected-item').style.display = 'none';
     })
 }
+
+
+

@@ -751,4 +751,59 @@ main {
       height: 300px;
       border: 2px solid #f89d13; }
 
+.online-pre-order {
+  display: none;
+  width: 100vw;
+  position: relative;
+  top: 100px;
+  justify-content: center; }
+  .online-pre-order form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 30px;
+    border: 5px solid #f89d13;
+    box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.25);
+    overflow: hidden; }
+    .online-pre-order form input {
+      width: 70%;
+      margin: 2px;
+      font-size: 15px;
+      border: 2px solid #f89d13;
+      padding: 2px; }
+    .online-pre-order form .send-info {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f89d13;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: background-color .4s ease, border .4s ease;
+      font-weight: bold; }
+      .online-pre-order form .send-info:hover {
+        background-color: #fff;
+        border: 2px solid #f89d13;
+        color: #f89d13;
+        box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.25); }
+    .online-pre-order form .online__selected-block .img-selected-item {
+      width: 50%;
+      height: 50%; }
+    .online-pre-order form .online__selected-block .info {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; }
+      .online-pre-order form .online__selected-block .info .info__text {
+        font-size: 20px;
+        font-weight: bold; }
+      .online-pre-order form .online__selected-block .info .info__district {
+        font-size: 24px;
+        font-weight: bold; }
+      .online-pre-order form .online__selected-block .info .info__description {
+        font-size: 12px;
+        font-weight: bold; }
+      .online-pre-order form .online__selected-block .info .info__price {
+        font-size: 20px;
+        color: #f89d13; }
+
 /*# sourceMappingURL=main.css.map */

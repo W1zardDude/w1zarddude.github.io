@@ -133,7 +133,7 @@
             
         </div>
 
-        <!-- Selected item on MAP -->
+        <!-- content selected item -->
         <div class="content__selected-item">
             <div class="content__selected-item__wrapper">
                 <img class="img-selected-item" src="" alt="img">
@@ -142,7 +142,7 @@
                     <h3 class="info__district"></h3>
                     <p class="info__description">1</p>
                     <span class="info__price"></span>
-                    <div class="buy">Online pre-oder</div>
+                    <div class="buy" onclick="onlinePreoder()">Online pre-oder</div>
                 </div>
             </div>
         </div>
@@ -166,12 +166,13 @@
             </div>
         </div>
     </div>
+    <!-- Selected item on MAP -->
     <div class="map-selected-item">
         <img class="map__img" src="img/img_6.jpg" alt="">
         <h3 class="map__district">Svytoshinsky</h3>
         <p class="map__description">Room: 1</p>
         <span class="map__price">49.999$</span>
-        <a class="map__pre-order">Pre-Order</a>
+        <a class="map__pre-order" onclick="onlinePreoder()">Pre-Order</a>
 
     </div>
    
@@ -272,6 +273,25 @@
 
     </div>
 
+    <!-- online pre-order -->
+    <div class="online-pre-order">
+        <form>
+            <div class="online__selected-block">
+                    <img class="img-selected-item" src="" alt="img">
+                    <div class="info">
+                        <h1 class="info__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita porro sapiente provident voluptates dolorem praesentium.</h1>
+                        <h3 class="info__district"></h3>
+                        <p class="info__description">1</p>
+                        <span class="info__price"></span>
+                    </div>
+            </div>
+
+            <input type="text" class="person-name" placeholder="First name">
+            <input type="text" class="person-second-name" placeholder="Second name">
+            <input type="number" class="number" placeholder="Tel. number">
+            <a onclick="sendInfo()" class="send-info">Confrim</a>
+        </form>
+    </div>
 
 
 

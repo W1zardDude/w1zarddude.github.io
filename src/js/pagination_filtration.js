@@ -203,17 +203,15 @@ function buildContent(){
                 blockContent.style.display = 'none';
                 contentSelected.style.display = 'flex';
                 filterBlock.style.display = 'none';
-                let info__text = document.querySelector('.info__text'),
-                    info__district = document.querySelector('.info__district'),
-                    info__description = document.querySelector('.info__description'),
-                    info__price = document.querySelector('.info__price'),
-                    buy = document.querySelector('.buy'),
-                    imgSelected = document.querySelector('.img-selected-item');
+                let info__district = Array.from(document.querySelectorAll('.info__district')),
+                    info__description = Array.from(document.querySelectorAll('.info__description')),
+                    info__price = Array.from(document.querySelectorAll('.info__price')),
+                    imgSelected = Array.from(document.querySelectorAll('.img-selected-item'));
 
-                    imgSelected.src = "../../img/" + imgSrcT;
-                    info__district.innerHTML = descriptionT;
-                    info__description.innerHTML = hoverDescriptionT;
-                    info__price.innerHTML = priceT;
+                    imgSelected.forEach(item => item.src = "../../img/" + imgSrcT);
+                    info__district.forEach(item => item.innerHTML = `${descriptionT} district`);
+                    info__description.forEach(item => item.innerHTML = `Rooms: ${hoverDescriptionT}`);
+                    info__price.forEach(item => item.innerHTML = `${priceT}$`);
                     
         });
           contentWrapper.appendChild(contentItem);

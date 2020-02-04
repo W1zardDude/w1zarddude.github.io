@@ -181,6 +181,8 @@ function servicePage() {
   document.querySelector(".settings").style.display = 'none';
   document.querySelector('.add-advert-block').style.display = 'none';
   document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
 }
 
 function buyPage() {
@@ -196,6 +198,8 @@ function buyPage() {
   document.querySelector(".settings").style.display = 'none';
   document.querySelector('.add-advert-block').style.display = 'none';
   document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
 }
 
 function Contacts() {
@@ -209,6 +213,8 @@ function Contacts() {
   document.querySelector(".settings").style.display = 'none';
   document.querySelector('.add-advert-block').style.display = 'none';
   document.querySelector('.contacts-block').style.display = 'block';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
 }
 
 function mapPage() {
@@ -222,6 +228,8 @@ function mapPage() {
   document.querySelector(".settings").style.display = 'none';
   document.querySelector('.add-advert-block').style.display = 'none';
   document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
 }
 
 function homePage() {
@@ -235,6 +243,8 @@ function homePage() {
   document.querySelector(".settings").style.display = 'none';
   document.querySelector('.add-advert-block').style.display = 'none';
   document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
 }
 
 function loginPage() {
@@ -247,12 +257,24 @@ function loginPage() {
   document.querySelector(".settings").style.display = 'none';
   document.querySelector('.add-advert-block').style.display = 'none';
   document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
+}
+
+function onlinePreoder() {
+  slider.style.display = 'none';
+  mainContent.style.display = 'none';
+  map.style.display = 'none';
+  services.style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.registration').style.display = 'none';
+  document.querySelector(".settings").style.display = 'none';
+  document.querySelector('.add-advert-block').style.display = 'none';
+  document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'flex';
 } // USER actions
 
-
-function userSettings() {
-  console.log(1);
-}
 
 function exit() {
   var user = JSON.parse(localStorage.getItem('logedUserInfo'));
@@ -273,6 +295,8 @@ function addAdvert() {
   document.querySelector('.add-advert-block').style.display = 'flex';
   document.querySelector(".settings").style.display = 'none';
   document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
 }
 
 function settings() {
@@ -286,6 +310,19 @@ function settings() {
   document.querySelector('.add-advert-block').style.display = 'none';
   document.querySelector(".settings").style.display = 'flex';
   document.querySelector('.contacts-block').style.display = 'none';
+  document.querySelector('.map-selected-item').style.display = 'none';
+  document.querySelector('.online-pre-order').style.display = 'none';
+}
+"use strict";
+
+function sendInfo() {
+  var firstName = document.querySelector('.person-name');
+  var secondName = document.querySelector('.person-second-name');
+  var number = document.querySelector('.number');
+  alert('We will call you back for further action.');
+  firstName.value = '';
+  secondName.value = '';
+  number.value = '';
 }
 "use strict";
 
@@ -633,16 +670,22 @@ function buildContent() {
       blockContent.style.display = 'none';
       contentSelected.style.display = 'flex';
       filterBlock.style.display = 'none';
-      var info__text = document.querySelector('.info__text'),
-          info__district = document.querySelector('.info__district'),
-          info__description = document.querySelector('.info__description'),
-          info__price = document.querySelector('.info__price'),
-          buy = document.querySelector('.buy'),
-          imgSelected = document.querySelector('.img-selected-item');
-      imgSelected.src = "../../img/" + imgSrcT;
-      info__district.innerHTML = descriptionT;
-      info__description.innerHTML = hoverDescriptionT;
-      info__price.innerHTML = priceT;
+      var info__district = Array.from(document.querySelectorAll('.info__district')),
+          info__description = Array.from(document.querySelectorAll('.info__description')),
+          info__price = Array.from(document.querySelectorAll('.info__price')),
+          imgSelected = Array.from(document.querySelectorAll('.img-selected-item'));
+      imgSelected.forEach(function (item) {
+        return item.src = "../../img/" + imgSrcT;
+      });
+      info__district.forEach(function (item) {
+        return item.innerHTML = "".concat(descriptionT, " district");
+      });
+      info__description.forEach(function (item) {
+        return item.innerHTML = "Rooms: ".concat(hoverDescriptionT);
+      });
+      info__price.forEach(function (item) {
+        return item.innerHTML = "".concat(priceT, "$");
+      });
     });
     contentWrapper.appendChild(contentItem);
   };
